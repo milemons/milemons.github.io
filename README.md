@@ -19,8 +19,8 @@ Don't look at other people's character sheet or ur a hoe
 
 
 ## Gathering Info🎈🎈🎈🎈
-Saturday 10/30/21
-7:30pm
+- Saturday 10/30/21
+- 7:30pm
 
 1130 First Edition Dr
 Apt 1203
