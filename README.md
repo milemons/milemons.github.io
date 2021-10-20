@@ -1,13 +1,12 @@
 # Hosting Site for Murder Mystery ✨stuff✨
+[John's Invite](/Bobby-invite.pdf) & [Character](Characters/Bobby_'Ba-Doing'_Springer..pdf)
 
-John's Invite
+[Michelle's Invite](Cheryl-Invite.pdf) & [Character](Characters/Cheryl_Small..pdf)
 
-Michelle's Invite
+[Tyler's Invite](Dr-david-invite.pdf) & [Character](Characters/Dr_David_McCormack..pdf)
 
-Tyler's Invite
+[Katelyn's Invite](Dr-Ruby-invite.pdf) & [Character](Characters/Dr_Ruby_Reid..pdf)
 
-Katelyn's Invite
+[James's Invite](father-brennan-invite.pdf) & [Character](Characters/Father_Brennan..pdf)
 
-James's Invite
-
-Katherine's Invite
+[Katherine's Invite](Sister-mary-helen-invite.pdf) & [Character](Characters/Sister_Mary_Helen..pdf)
