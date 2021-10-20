@@ -16,3 +16,15 @@ Don't look at other people's character sheet or ur a hoe
 [James's Invite](father-brennan-invite.pdf) & [Character](Characters/Father_Brennan..pdf)
 
 [Katherine's Invite](Sister-mary-helen-invite.pdf) & [Character](Characters/Sister_Mary_Helen..pdf)
+
+
+## Gathering Info🎈🎈🎈🎈
+Saturday 10/30/21
+7:30pm
+
+1130 First Edition Dr
+Apt 1203
+Durham, NC 27703
+
+** google is a hoe & doesn't know the building. u might need to call me if u get lost: 9259840334 **
+
