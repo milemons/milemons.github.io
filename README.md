@@ -1,4 +1,10 @@
 # Hosting Site for Murder Mystery ✨stuff✨
+
+
+Feel free to look at other invites ((spoilers they're all the same except the name)).
+
+Don't look at other people's character sheet or ur a hoe
+
 [John's Invite](/Bobby-invite.pdf) & [Character](Characters/Bobby_'Ba-Doing'_Springer..pdf)
 
 [Michelle's Invite](Cheryl-Invite.pdf) & [Character](Characters/Cheryl_Small..pdf)
