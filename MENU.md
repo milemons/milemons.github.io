@@ -13,4 +13,3 @@
     - 🍐[Pear butter margarita](https://blog.harryanddavid.com/apple-butter-cocktail/#recipe)🍐
 - White rum
     - 🍁[Maple mojito](https://butternutmountainfarm.com/about-maple/recipes/maple-mojito)🍁
-   </body>
