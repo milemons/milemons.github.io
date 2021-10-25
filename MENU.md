@@ -1,18 +1,16 @@
 ## MENU
-- Cake pops:
-    - Carrot cake + cream cheese icing + black melts
-- Pumpkin butter chocolate chip cookies
-- Dip + pita????
-- Charcuterie?
-- Candie charcuterie?
+### FOOD 
+- carrot cake pops
+- pumpkin butter chocolate chip cookies
+- open to suggstions for other things
 
-DRINKS
+### DRINKS
 - Vodka
-    - Pumpkin honey 
+    - [Pumpkin punch](https://www.halfbakedharvest.com/pumpkin-head-punch/#wprm-recipe-container-112699)
 - Gin
-    - Apple butter 
+    - [Apple cider](https://creative-culinary.com/gin-apple-cider-ginger-beer-cocktail-recipe/)
 - Tequila
-    - Fall mimosa???
+    - [Pear butter margarita](https://blog.harryanddavid.com/apple-butter-cocktail/#recipe)
 - White rum
-    - Easy mojito????
+    - [Maple mojito](https://butternutmountainfarm.com/about-maple/recipes/maple-mojito)
    </body>
