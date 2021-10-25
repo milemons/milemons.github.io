@@ -1,14 +1,4 @@
-<!doctype html>
-<html lang="en" class="no-js">
-    <head>
-        <title>MENU</title>
-        <link type="text/css" rel="stylesheet" href="css/style.css"> 
-    </head>
-    <body>
-        <div class="flex-row flex-center">
-            <p class="fancyfont">test</p>
-        </div>
-  
+## MENU
 - Cake pops:
     - Carrot cake + cream cheese icing + black melts
 - Pumpkin butter chocolate chip cookies
@@ -26,4 +16,3 @@ DRINKS
 - White rum
     - Easy mojito????
    </body>
-</html>
