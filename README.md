@@ -28,5 +28,6 @@ Durham, NC 27703
 
 ** google is a hoe & doesn't know the building. u might need to call me if u get lost: 9259840334 **
 
-
+<p align="center">
 <img src="./qr-code.png" width="200" height="200" />
+</p>
