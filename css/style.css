@@ -1,5 +1,15 @@
 import url(//fonts.googleapis.com/css?family=Tangerine);
 
 fancyfont {
-  font-family: Tangerine
+  font-size: x-large;
+  font-family: Tangerine;
+  
+}
+
+flex-row {
+  flex-direction: row;
+}
+
+flex-center {
+  justify-content: center;
 }
