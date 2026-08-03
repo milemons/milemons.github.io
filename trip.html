@@ -1,0 +1,1801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>30th Birthday European Cruise • Hotel Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f5f0e8;
+    --warm-white: #faf8f4;
+    --gold: #c9a84c;
+    --gold-light: #e8d5a3;
+    --deep: #1a1410;
+    --mid: #3d2e1e;
+    --muted: #8a7b6a;
+    --lisbon: #c25b3f;
+    --london: #2d5a8e;
+    --lisbon-light: #f5e8e4;
+    --london-light: #e4edf5;
+    --top-bg: #fffdf7;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--cream);
+    font-family: 'Montserrat', sans-serif;
+    color: var(--deep);
+    min-height: 100vh;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--deep);
+    color: var(--cream);
+    padding: 64px 40px 56px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 30% 50%, rgba(201,168,76,0.12) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 50%, rgba(44,90,142,0.12) 0%, transparent 60%);
+  }
+  .hero-eyebrow {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 6vw, 64px);
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+    position: relative;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+  .hero-sub {
+    margin-top: 20px;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: rgba(245,240,232,0.6);
+    text-transform: uppercase;
+    position: relative;
+  }
+  .hero-dates {
+    margin-top: 32px;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    position: relative;
+  }
+  .date-pill {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 100px;
+    padding: 8px 18px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: var(--gold-light);
+  }
+
+  /* NAV */
+  .city-nav {
+    display: flex;
+    background: var(--warm-white);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .city-tab {
+    flex: 1;
+    padding: 18px 20px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: all 0.2s;
+    border: none;
+    background: none;
+    color: var(--muted);
+    border-bottom: 3px solid transparent;
+  }
+  .city-tab.active-lisbon { color: var(--lisbon); border-bottom-color: var(--lisbon); }
+  .city-tab.active-london { color: var(--london); border-bottom-color: var(--london); }
+  .city-tab:not(.active-lisbon):not(.active-london):hover { color: var(--deep); }
+
+  /* SECTION */
+  .city-section { display: none; padding: 48px 24px 80px; max-width: 900px; margin: 0 auto; }
+  .city-section.visible { display: block; }
+
+  .section-header {
+    margin-bottom: 40px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+  }
+  .section-header h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    font-weight: 300;
+    letter-spacing: -0.5px;
+  }
+  .section-header h2 .city-accent-lisbon { color: var(--lisbon); }
+  .section-header h2 .city-accent-london { color: var(--london); }
+  .section-header p {
+    margin-top: 10px;
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    line-height: 1.7;
+  }
+
+  /* TOP PICKS */
+  .top-picks-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .top-picks-label::before, .top-picks-label::after {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--gold);
+    opacity: 0.6;
+  }
+
+  /* MAP EMBED */
+  .map-container {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.08);
+    margin-bottom: 40px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  }
+  .map-container iframe { display: block; }
+
+  /* HOTEL CARDS */
+  .hotels-grid { display: flex; flex-direction: column; gap: 20px; }
+
+  .hotel-card {
+    background: var(--warm-white);
+    border-radius: 12px;
+    border: 1px solid rgba(0,0,0,0.07);
+    overflow: hidden;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .hotel-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.1); transform: translateY(-2px); }
+
+  .hotel-card.top-pick-lisbon { border-color: var(--lisbon); border-width: 2px; background: var(--top-bg); }
+  .hotel-card.top-pick-london { border-color: var(--london); border-width: 2px; background: var(--top-bg); }
+
+  .card-header {
+    padding: 20px 24px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .card-header-left { flex: 1; min-width: 0; }
+  .hotel-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.2px;
+  }
+  .hotel-address {
+    font-size: 10px;
+    color: var(--muted);
+    margin-top: 4px;
+    letter-spacing: 0.5px;
+  }
+  .card-header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+    flex-shrink: 0;
+  }
+  .price-tag {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--deep);
+    line-height: 1;
+  }
+  .price-note { font-size: 9px; color: var(--muted); letter-spacing: 0.5px; text-align: right; }
+  .top-pick-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: linear-gradient(135deg, var(--gold), #a8832a);
+    color: white;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 100px;
+  }
+
+  .card-body {
+    padding: 0 24px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .tag-row { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 100px;
+    background: rgba(0,0,0,0.04);
+    color: var(--muted);
+  }
+  .tag.tag-amex { background: rgba(201,168,76,0.12); color: #8a6a10; }
+  .tag.tag-location { background: rgba(45,90,142,0.1); color: var(--london); }
+  .tag.tag-location-l { background: rgba(194,91,63,0.1); color: var(--lisbon); }
+  .tag.tag-vibe { background: rgba(80,60,40,0.08); color: var(--mid); }
+
+  .rating-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .stars { color: var(--gold); font-size: 13px; letter-spacing: 1px; }
+  .rating-num { font-weight: 600; color: var(--deep); }
+
+  .analysis {
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--mid);
+    padding: 14px 16px;
+    background: rgba(0,0,0,0.025);
+    border-radius: 8px;
+    border-left: 3px solid;
+  }
+  .hotel-card.top-pick-lisbon .analysis { border-left-color: var(--lisbon); background: rgba(194,91,63,0.04); }
+  .hotel-card.top-pick-london .analysis { border-left-color: var(--london); background: rgba(45,90,142,0.04); }
+  .hotel-card:not(.top-pick-lisbon):not(.top-pick-london) .analysis { border-left-color: var(--gold); }
+
+  .verdict {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--muted);
+    padding: 10px 16px;
+    background: rgba(0,0,0,0.025);
+    border-radius: 8px;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .verdict-icon { flex-shrink: 0; font-size: 14px; margin-top: -1px; }
+
+  /* FOOTER */
+  .trip-footer {
+    background: var(--deep);
+    color: rgba(245,240,232,0.7);
+    padding: 40px;
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 1px;
+  }
+  .trip-footer strong { color: var(--gold); }
+
+  /* RESPONSIVE */
+  @media (max-width: 600px) {
+    .hero { padding: 48px 24px 40px; }
+    .card-header { flex-direction: column; }
+    .card-header-right { flex-direction: row; align-items: center; flex-wrap: wrap; }
+    .city-section { padding: 32px 16px 64px; }
+  }
+
+/* ===== Cruise Itinerary (voyage dossier) scoped styles ===== */
+:root{
+    --paper:#f1e8d6;
+    --paper-deep:#e6d9bd;
+    --ink:#241f18;
+    --ink-soft:#5a5142;
+    --navy:#1c2b40;
+    --navy-deep:#11192a;
+    --brass:#a9813f;
+    --brass-light:#c9a55a;
+    --wine:#6d2530;
+    --azulejo:#2c6486;
+    --line:#c8b78f;
+  }
+.vd-scope, .vd-scope *{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+.vd-scope{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Newsreader', serif;
+    font-size:17px;
+    line-height:1.5;
+  }
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto;}
+ }
+.vd-scope .display{ font-family:'Fraunces', serif; font-variation-settings:'SOFT' 0,'WONK' 0; }
+.vd-scope .mono{ font-family:'IBM Plex Mono', monospace; letter-spacing:0.01em; }
+.vd-scope /* ---------- HERO ---------- */
+  header.hero{
+    background:radial-gradient(120% 140% at 15% -10%, #24344c 0%, var(--navy) 45%, var(--navy-deep) 100%);
+    color:var(--paper);
+    padding:64px 24px 48px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+.vd-scope header.hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image:
+      linear-gradient(transparent 0 95%, rgba(200,183,143,0.06) 95% 100%),
+      linear-gradient(90deg, transparent 0 95%, rgba(200,183,143,0.06) 95% 100%);
+    background-size: 48px 48px;
+    opacity:0.5;
+    pointer-events:none;
+  }
+.vd-scope .eyebrow{
+    font-size:12px;
+    letter-spacing:0.28em;
+    text-transform:uppercase;
+    color:var(--brass-light);
+    margin-bottom:18px;
+    position:relative;
+  }
+.vd-scope h1.title{
+    font-size:clamp(2.1rem, 6vw, 3.4rem);
+    font-weight:600;
+    font-style:italic;
+    margin:0 0 10px;
+    letter-spacing:-0.01em;
+    position:relative;
+  }
+.vd-scope .subtitle{
+    font-size:15px;
+    color:#cfd6de;
+    margin:0 0 40px;
+    position:relative;
+  }
+.vd-scope .subtitle .mono{ color:var(--brass-light); }
+.vd-scope /* route line diagram */
+  .routeline{
+    position:relative;
+    max-width:720px;
+    margin:0 auto;
+    padding:0 8px;
+  }
+.vd-scope .routeline svg{ width:100%; height:auto; overflow:visible; display:block; }
+.vd-scope .routeline .stop-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px;
+    fill:#b9c2cd;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+  }
+.vd-scope .routeline .stop-date{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:9.5px;
+    fill:#7c8794;
+  }
+.vd-scope /* ---------- MAIN LAYOUT ---------- */
+  main{
+    max-width:760px;
+    margin:0 auto;
+    padding:0 20px 80px;
+  }
+.vd-scope /* route divider — the signature element: a bearing/manifest strip between port days */
+  .route-divider{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin:0 0 0;
+    padding:26px 4px;
+  }
+.vd-scope .route-divider .seg{ flex:1; height:1px; background-image:linear-gradient(90deg, var(--line) 0 6px, transparent 6px 12px); background-size:12px 1px; background-repeat:repeat-x; }
+.vd-scope .route-divider .bearing{
+    text-align:center;
+    white-space:nowrap;
+    padding:0 6px;
+  }
+.vd-scope .route-divider .bearing .dist{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    font-weight:600;
+    color:var(--wine);
+  }
+.vd-scope .route-divider .bearing .note{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:9.5px;
+    color:var(--ink-soft);
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+  }
+.vd-scope /* ---------- DAY CARD ---------- */
+  section.day{
+    position:relative;
+    background:var(--paper);
+    padding:36px 0 8px;
+    border-top:1px solid var(--line);
+  }
+.vd-scope section.day:first-of-type{ border-top:none; }
+.vd-scope .day-head{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:18px 20px;
+    align-items:start;
+    margin-bottom:22px;
+  }
+.vd-scope .day-num{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:600;
+    font-size:2.6rem;
+    color:var(--brass);
+    line-height:1;
+    min-width:52px;
+  }
+.vd-scope .port-name{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.55rem;
+    margin:0 0 4px;
+    color:var(--navy);
+  }
+.vd-scope .port-meta{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--ink-soft);
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+  }
+.vd-scope /* ashore box */
+  .ashore{
+    background:var(--paper-deep);
+    border:1px solid var(--line);
+    border-radius:2px;
+    padding:14px 16px;
+    margin:0 0 24px;
+    font-size:14.5px;
+    color:var(--ink);
+    position:relative;
+  }
+.vd-scope .ashore::before{
+    content:"ASHORE";
+    position:absolute;
+    top:-9px; left:14px;
+    background:var(--paper);
+    padding:0 8px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10px;
+    letter-spacing:0.12em;
+    color:var(--azulejo);
+    font-weight:600;
+  }
+.vd-scope .ashore b{ color:var(--azulejo); }
+.vd-scope /* timeline */
+  .timeline{ position:relative; padding-left:78px; }
+.vd-scope .timeline::before{
+    content:"";
+    position:absolute;
+    left:64px; top:6px; bottom:6px;
+    width:1px;
+    background:var(--line);
+  }
+.vd-scope .item{
+    position:relative;
+    padding:0 0 20px;
+  }
+.vd-scope .item::before{
+    content:"";
+    position:absolute;
+    left:-14.5px; top:6px;
+    width:8px; height:8px;
+    border-radius:50%;
+    background:var(--brass);
+    border:2px solid var(--paper);
+    box-shadow:0 0 0 1px var(--line);
+  }
+.vd-scope .item .time{
+    position:absolute;
+    left:-78px; top:2px;
+    width:56px;
+    text-align:right;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    font-weight:600;
+    color:var(--navy);
+  }
+.vd-scope .item .what{
+    font-size:16px;
+    font-weight:500;
+    color:var(--ink);
+  }
+.vd-scope .item .addr{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    color:var(--ink-soft);
+    margin-top:2px;
+  }
+.vd-scope .item .note{
+    font-size:14px;
+    color:var(--ink-soft);
+    margin-top:3px;
+    font-style:italic;
+  }
+.vd-scope .item.optional .what::after{
+    content:" (optional)";
+    font-size:12px;
+    font-style:italic;
+    color:var(--ink-soft);
+  }
+.vd-scope /* dinner tag */
+  .dinner{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:var(--wine);
+    color:var(--paper);
+    padding:7px 14px;
+    border-radius:999px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.03em;
+    margin:6px 0 30px 78px;
+  }
+.vd-scope /* eclipse panel */
+  .eclipse{
+    margin:0 0 26px;
+    background:radial-gradient(120% 160% at 20% 0%, #24344c 0%, var(--navy) 55%, var(--navy-deep) 100%);
+    border-radius:4px;
+    padding:26px 22px;
+    color:var(--paper);
+  }
+.vd-scope .eclipse h3{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:600;
+    font-size:1.3rem;
+    margin:0 0 4px;
+    color:var(--brass-light);
+  }
+.vd-scope .eclipse .sub{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    color:#9fb0c1;
+    margin-bottom:16px;
+  }
+.vd-scope .eclipse .phases{ display:grid; gap:9px; }
+.vd-scope .eclipse .phase{
+    display:grid;
+    grid-template-columns:70px 1fr auto;
+    gap:10px;
+    align-items:baseline;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    border-bottom:1px dashed rgba(255,255,255,0.12);
+    padding-bottom:8px;
+  }
+.vd-scope .eclipse .phase.peak{ color:var(--brass-light); font-weight:600; }
+.vd-scope .eclipse .phase .lbl{ color:#cfd6de; }
+.vd-scope .eclipse .phase.peak .lbl{ color:var(--brass-light); }
+.vd-scope .eclipse .phase .alt{ color:#7c8794; text-align:right; }
+.vd-scope .eclipse .phase.peak .alt{ color:#d8c088; }
+.vd-scope .eclipse p.note{
+    font-size:13.5px;
+    color:#cfd6de;
+    margin:16px 0 0;
+    line-height:1.55;
+  }
+.vd-scope /* free-time / rest day */
+  .rest{
+    padding-left:78px;
+    color:var(--ink-soft);
+    font-style:italic;
+    padding-bottom:20px;
+  }
+.vd-scope /* footer appendix */
+  footer{
+    background:var(--navy-deep);
+    color:#cfd6de;
+    padding:48px 20px 60px;
+  }
+.vd-scope footer .wrap{ max-width:760px; margin:0 auto; }
+.vd-scope footer h2{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:600;
+    color:var(--brass-light);
+    font-size:1.4rem;
+    margin:0 0 22px;
+  }
+.vd-scope .field-notes{ display:grid; gap:18px; }
+.vd-scope .field-notes .note-block b{
+    display:block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--brass-light);
+    margin-bottom:5px;
+  }
+.vd-scope .field-notes .note-block p{
+    margin:0;
+    font-size:14.5px;
+    line-height:1.6;
+    color:#dfe4e9;
+  }
+.vd-scope .ticket-tag{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    margin-top:6px;
+    padding:3px 10px 3px 8px;
+    border-radius:999px;
+    background:rgba(44,100,134,0.12);
+    border:1px solid var(--azulejo);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px;
+    color:var(--azulejo);
+    font-weight:600;
+    letter-spacing:0.02em;
+}
+.vd-scope .ticket-tag::before{ content:"✓"; font-weight:700; }
+
+@media (max-width:640px){.vd-scope{ font-size:16px; }
+.vd-scope .day-head{ grid-template-columns:auto 1fr; gap:12px 14px; }
+.vd-scope .day-num{ font-size:2.1rem; min-width:40px; }
+.vd-scope .timeline{ padding-left:64px; }
+.vd-scope .timeline::before{ left:50px; }
+.vd-scope .item .time{ left:-64px; width:46px; font-size:11px; }
+.vd-scope .item::before{ left:-14px; }
+.vd-scope .dinner{ margin-left:64px; }
+.vd-scope .rest{ padding-left:64px; }
+.vd-scope header.hero{ padding:48px 18px 36px; }
+
+  }
+
+
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-eyebrow">⚓ European Cruise • August 2025</div>
+  <h1>Hotel Guide for<br><em>His 30th Birthday</em></h1>
+  <p class="hero-sub">Lisbon &amp; London • Curated from Amex Fine Hotels &amp; Resorts</p>
+  <div class="hero-dates">
+    <span class="date-pill">🇮🇪 Dublin Layover · Aug 8</span>
+    <span class="date-pill">✈ Arrive Lisbon · Aug 8</span>
+    <span class="date-pill">🚢 Board Cruise · Aug 10</span>
+    <span class="date-pill">🏁 Dock Southampton · Aug 17</span>
+    <span class="date-pill">🇬🇧 London Night · Aug 17–18</span>
+    <span class="date-pill">✈ Fly Home · Aug 18 evening</span>
+  </div>
+</div>
+
+<nav class="city-nav" style="flex-wrap:wrap;">
+  <button class="city-tab" style="border-bottom-color:#2d7a3e;color:#2d7a3e;" onclick="showCity('dublin', this)">🇮🇪 &nbsp;Dublin &nbsp;(layover)</button>
+  <button class="city-tab" onclick="showCity('lisbonplan', this)">🗺 &nbsp;Lisbon Plan</button>
+  <button class="city-tab" onclick="showCity('cruise', this)">🚢 &nbsp;Cruise Itinerary</button>
+  <button class="city-tab" onclick="showCity('londonplan', this)">🗺 &nbsp;London Plan</button>
+</nav>
+
+<!-- ==================== DUBLIN ==================== -->
+<section class="city-section visible" id="section-dublin">
+  <div class="section-header">
+    <h2>Dublin, <span style="color:#2d7a3e;">Ireland</span></h2>
+    <p>August 8 · Layover day trip · Land 8:45am, depart 6:35pm · Bags stored at airport · On foot &amp; taxi<br>
+    Built around your two confirmed bookings: <strong>Book of Kells at 11:00</strong> and <strong>Guinness Storehouse at 13:30</strong>.</p>
+  </div>
+
+  <!-- TIMING ALERT BOX -->
+  <div style="background:#fffbea;border:2px solid #c9a84c;border-radius:12px;padding:24px;margin-bottom:36px;">
+    <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#8a6a10;margin-bottom:12px;">⏱ Time Budget — Read This First</div>
+    <div style="display:grid;gap:10px;">
+      <div style="display:flex;gap:12px;align-items:flex-start;font-size:13px;">
+        <span style="background:#c9a84c;color:white;border-radius:100px;padding:2px 10px;font-size:10px;font-weight:700;white-space:nowrap;flex-shrink:0;">8:45 AM</span>
+        <span><strong>Land at Dublin Airport</strong> — You're coming <em>into</em> Ireland, so this is standard Irish immigration/customs. Arriving from the US in August, budget <strong>60–90 min</strong> for deplaning → immigration → baggage (if any) → luggage storage.</span>
+      </div>
+      <div style="display:flex;gap:12px;align-items:flex-start;font-size:13px;">
+        <span style="background:#8a7b6a;color:white;border-radius:100px;padding:2px 10px;font-size:10px;font-weight:700;white-space:nowrap;flex-shrink:0;">10:15 AM</span>
+        <span><strong>Realistic airport exit</strong> — After storing bags and grabbing a coffee/food at the airport if needed. The <strong>Excess Baggage Company</strong> in Terminal 1 stores luggage (note: T1, walk from T2 takes ~5 min via covered walkway).</span>
+      </div>
+      <div style="display:flex;gap:12px;align-items:flex-start;font-size:13px;">
+        <span style="background:#8a7b6a;color:white;border-radius:100px;padding:2px 10px;font-size:10px;font-weight:700;white-space:nowrap;flex-shrink:0;">10:15–10:45 AM</span>
+        <span><strong>Airport → City Centre</strong> — Take an <strong>Uber/Free Now taxi (~€30–38, ~25–35 min)</strong> or <strong>Aircoach bus (~€9, ~35–40 min)</strong>. For two tired people after a red-eye with a big day ahead, splurge on the taxi — you can sleep in it. Ask driver to use the <strong>Dublin Port Tunnel</strong> to skip traffic.</span>
+      </div>
+      <div style="display:flex;gap:12px;align-items:flex-start;font-size:13px;">
+        <span style="background:#2d7a3e;color:white;border-radius:100px;padding:2px 10px;font-size:10px;font-weight:700;white-space:nowrap;flex-shrink:0;">10:45–11:00 AM</span>
+        <span><strong>City centre arrival, straight to Trinity.</strong> Your <strong>Book of Kells entry is timed for 11:00</strong> — that's your first fixed point of the day, everything else is built around it.</span>
+      </div>
+      <div style="display:flex;gap:12px;align-items:flex-start;font-size:13px;">
+        <span style="background:#c25b3f;color:white;border-radius:100px;padding:2px 10px;font-size:10px;font-weight:700;white-space:nowrap;flex-shrink:0;">4:00 PM</span>
+        <span><strong>Leave city for airport.</strong> Your flight departs 6:35pm and, since it's a European flight to Lisbon (not US-bound), you only need to arrive <strong>2 hours before</strong> — no US Preclearance on this leg. Add ~30–35 min transit back. <strong>4:00 PM latest city departure.</strong> Set a phone alarm.</span>
+      </div>
+      <div style="display:flex;gap:12px;align-items:flex-start;font-size:13px;">
+        <span style="background:#c25b3f;color:white;border-radius:100px;padding:2px 10px;font-size:10px;font-weight:700;white-space:nowrap;flex-shrink:0;">4:30 PM</span>
+        <span><strong>Back at airport</strong> — Collect bags from storage, head to Terminal 2, standard check-in and security (no Preclearance queue to worry about). Boards ~6:05pm, departs 6:35pm.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAP -->
+  <div class="map-container" id="map-dublin" style="height:400px;"></div>
+  <p style="font-size:11px;color:var(--muted);margin-bottom:36px;text-align:center;letter-spacing:0.5px;">📍 All stops on your Dublin day trip · click a pin for details</p>
+
+  <!-- ITINERARY -->
+  <div class="top-picks-label">Your Day Trip Itinerary</div>
+
+  <div style="display:flex;flex-direction:column;gap:0;">
+
+    <!-- STOP 1 -->
+    <div style="display:flex;gap:20px;padding:24px 0;border-bottom:1px solid rgba(0,0,0,0.07);">
+      <div style="flex-shrink:0;width:52px;height:52px;background:#2d7a3e;color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;">1</div>
+      <div style="flex:1;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;">
+          <div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;letter-spacing:-0.2px;">Trinity College & The Book of Kells</div>
+            <div style="font-size:11px;color:var(--muted);margin-top:2px;">College Green · 10 min walk from Ha'penny Bridge</div>
+          </div>
+          <div style="background:#f0f7f1;border:1px solid #2d7a3e;border-radius:8px;padding:6px 14px;font-size:11px;font-weight:700;color:#2d7a3e;white-space:nowrap;">11:00 – 12:30 · 90 min (booked)</div>
+        </div>
+        <div style="margin-top:14px;font-size:13px;line-height:1.7;color:var(--mid);">
+          Your entry is timed for <strong>11:00</strong>, so head straight here from the taxi drop-off. Trinity College is Dublin's oldest university (1592) and one of the most beautiful campuses in Europe. The <strong>Book of Kells</strong> is a jaw-dropping 9th-century illuminated manuscript made by Celtic monks — essentially the most beautiful book ever made. The adjacent <strong>Long Room library</strong> (200,000 ancient books, barrel-vaulted ceiling) looks like it was torn from a fantasy novel. The ticket recommends allowing 90 minutes, which lines up well with the rest of the day.
+        </div>
+        <div style="margin-top:10px;font-size:11px;font-weight:600;color:var(--muted);display:flex;gap:16px;flex-wrap:wrap;">
+          <span>⏱ Allow the full 90 min</span><span>📍 College Green, Dublin 2</span>
+        </div>
+        <div style="margin-top:10px;display:inline-flex;align-items:center;gap:6px;padding:4px 12px 4px 10px;border-radius:999px;background:#f0f7f1;border:1px solid #2d7a3e;font-size:10.5px;font-weight:700;color:#2d7a3e;letter-spacing:0.3px;">✓ 2x tickets booked · Sat 08 Aug, 11:00 · mobile pass — pull up QR at entrance</div>
+      </div>
+    </div>
+
+    <!-- STOP 2 -->
+    <div style="display:flex;gap:20px;padding:24px 0;border-bottom:1px solid rgba(0,0,0,0.07);">
+      <div style="flex-shrink:0;width:52px;height:52px;background:#2d7a3e;color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;">2</div>
+      <div style="flex:1;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;">
+          <div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;letter-spacing:-0.2px;">Grafton Street → Quick Bite</div>
+            <div style="font-size:11px;color:var(--muted);margin-top:2px;">5 min walk from Trinity · Dublin's premier shopping street</div>
+          </div>
+          <div style="background:#f0f7f1;border:1px solid #2d7a3e;border-radius:8px;padding:6px 14px;font-size:11px;font-weight:700;color:#2d7a3e;white-space:nowrap;">12:30 – 1:00 · ~30 min</div>
+        </div>
+        <div style="margin-top:14px;font-size:13px;line-height:1.7;color:var(--mid);">
+          With Guinness booked for 1:30, this window is tighter than a sit-down Full Irish — keep it quick. Walk up Grafton Street, a pedestrianised shopping street full of buskers and Georgian architecture, and grab something fast. <strong>Bewley's Oriental Café</strong> does a solid grab-and-go counter if you don't want to wait for table service; otherwise a bakery or coffee shop along the street works fine. Save the leisurely pub lunch for another trip.
+        </div>
+        <div style="margin-top:10px;font-size:11px;font-weight:600;color:var(--muted);display:flex;gap:16px;flex-wrap:wrap;">
+          <span>⏱ Keep it to 30 min</span><span>🥐 Grab-and-go, not sit-down</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- STOP 3 -->
+    <div style="display:flex;gap:20px;padding:24px 0;border-bottom:1px solid rgba(0,0,0,0.07);">
+      <div style="flex-shrink:0;width:52px;height:52px;background:#8a7b6a;color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;">3</div>
+      <div style="flex:1;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;">
+          <div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;letter-spacing:-0.2px;">Taxi to Guinness Storehouse</div>
+            <div style="font-size:11px;color:var(--muted);margin-top:2px;">St. James's Gate · too far to comfortably walk in this window</div>
+          </div>
+          <div style="background:#f5f0e8;border:1px solid #8a7b6a;border-radius:8px;padding:6px 14px;font-size:11px;font-weight:700;color:#8a7b6a;white-space:nowrap;">1:00 – 1:20 · transit</div>
+        </div>
+        <div style="margin-top:14px;font-size:13px;line-height:1.7;color:var(--mid);">
+          It's about a 25-minute walk from Grafton Street to St. James's Gate — too long with a 1:30 entry to hit. Grab a taxi instead (~10 min, a few euro) and you'll land with a comfortable buffer before your slot.
+        </div>
+        <div style="margin-top:10px;font-size:11px;font-weight:600;color:var(--muted);">🚕 Free Now or Uber · ~10 min ride</div>
+      </div>
+    </div>
+
+    <!-- STOP 4 -->
+    <div style="display:flex;gap:20px;padding:24px 0;border-bottom:1px solid rgba(0,0,0,0.07);">
+      <div style="flex-shrink:0;width:52px;height:52px;background:#2d7a3e;color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;">4</div>
+      <div style="flex:1;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;">
+          <div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;letter-spacing:-0.2px;">Guinness Storehouse</div>
+            <div style="font-size:11px;color:var(--muted);margin-top:2px;">St. James's Gate</div>
+          </div>
+          <div style="background:#f0f7f1;border:1px solid #2d7a3e;border-radius:8px;padding:6px 14px;font-size:11px;font-weight:700;color:#2d7a3e;white-space:nowrap;">1:30 – 3:00 · 90 min (booked)</div>
+        </div>
+        <div style="margin-top:14px;font-size:13px;line-height:1.7;color:var(--mid);">
+          One of the world's best brewery experiences — 7 floors of immersive storytelling culminating in the <strong>Gravity Bar</strong> with 360° views over Dublin and a complimentary pint. Your entry is timed for <strong>1:30</strong>; allowing the full 90 minutes to do it properly still leaves a relaxed window before you need to head to the airport.
+        </div>
+        <div style="margin-top:10px;font-size:11px;font-weight:600;color:var(--muted);display:flex;gap:16px;flex-wrap:wrap;">
+          <span>🍺 Gravity Bar pint included</span><span>Closes 5pm</span>
+        </div>
+        <div style="margin-top:10px;display:inline-flex;align-items:center;gap:6px;padding:4px 12px 4px 10px;border-radius:999px;background:#f0f7f1;border:1px solid #2d7a3e;font-size:10.5px;font-weight:700;color:#2d7a3e;letter-spacing:0.3px;">✓ Booked · ref 904287248 · Sat 08 Aug, 13:30 · mobile pass</div>
+      </div>
+    </div>
+
+    <!-- STOP 5 -->
+    <div style="display:flex;gap:20px;padding:24px 0;border-bottom:1px solid rgba(0,0,0,0.07);">
+      <div style="flex-shrink:0;width:52px;height:52px;background:#2d7a3e;color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;">5</div>
+      <div style="flex:1;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;">
+          <div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;letter-spacing:-0.2px;">Temple Bar & Ha'penny Bridge</div>
+            <div style="font-size:11px;color:var(--muted);margin-top:2px;">15 min walk east from Guinness Storehouse · The iconic cobblestone district</div>
+          </div>
+          <div style="background:#f0f7f1;border:1px solid #2d7a3e;border-radius:8px;padding:6px 14px;font-size:11px;font-weight:700;color:#2d7a3e;white-space:nowrap;">3:00 – 3:45 · ~45 min</div>
+        </div>
+        <div style="margin-top:14px;font-size:13px;line-height:1.7;color:var(--mid);">
+          Walk back toward the city centre through Dublin's most famous neighbourhood — cobblestone streets, colourful Georgian buildings, live traditional Irish music spilling out of pubs even in the afternoon. This route conveniently puts you right by <strong>Ha'penny Bridge</strong> — the city's most iconic landmark, a beautiful white cast-iron pedestrian bridge over the River Liffey — on your way back to catch a taxi. Cross it, look back, take the photo.
+        </div>
+        <div style="margin-top:10px;font-size:11px;font-weight:600;color:var(--muted);display:flex;gap:16px;flex-wrap:wrap;">
+          <span>🎵 Live trad music likely in pubs</span><span>📸 Ha'penny Bridge is a must</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RETURN -->
+    <div style="display:flex;gap:20px;padding:24px 0;">
+      <div style="flex-shrink:0;width:52px;height:52px;background:#c25b3f;color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;">✈</div>
+      <div style="flex:1;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;">
+          <div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;letter-spacing:-0.2px;">Return to Airport</div>
+            <div style="font-size:11px;color:var(--muted);margin-top:2px;">Taxi from city centre · ~30–35 min</div>
+          </div>
+          <div style="background:#fdf0ed;border:1px solid #c25b3f;border-radius:8px;padding:6px 14px;font-size:11px;font-weight:700;color:#c25b3f;white-space:nowrap;">⚠️ Leave by 4:00 PM latest</div>
+        </div>
+        <div style="margin-top:14px;font-size:13px;line-height:1.7;color:var(--mid);">
+          Grab an Uber/Free Now taxi back to the airport (~€30–38). Collect your bags from storage in Terminal 1, then proceed to <strong>Terminal 2</strong> for your Lisbon flight check-in and security — standard European departure process, no Preclearance to budget for on this leg. Your flight boards around 6:05pm, departing 6:35pm.
+        </div>
+        <div style="margin-top:10px;font-size:12px;font-weight:600;color:#c25b3f;">
+          🔔 Set a phone alarm for 3:45 PM as your "drop everything and go" signal.
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /itinerary -->
+
+  <!-- OPTIONAL ADD -->
+  <div style="background:var(--warm-white);border:1px dashed rgba(0,0,0,0.15);border-radius:12px;padding:20px 24px;margin-top:12px;font-size:13px;line-height:1.6;color:var(--mid);">
+    💡 <strong>Dublin Castle didn't make the cut this time</strong> — with Guinness now locked at 1:30, there isn't a clean window for it without rushing the Book of Kells visit. If you find yourselves ahead of schedule after Trinity, the free courtyard and Chester Beatty Library are a 5-minute walk south and worth a quick peek, but don't force it — better to arrive relaxed for Guinness than squeeze in one more stop.
+  </div>
+
+  <!-- TIPS BOX -->
+  <div style="background:var(--warm-white);border:1px solid rgba(0,0,0,0.08);border-radius:12px;padding:24px;margin-top:32px;">
+    <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">🍀 Practical Tips for Your Dublin Day</div>
+    <div style="display:grid;gap:10px;font-size:13px;line-height:1.6;color:var(--mid);">
+      <div><strong>Currency:</strong> Ireland uses the Euro (€). Cards are widely accepted everywhere, but grab €30–50 from an airport ATM for pub cash and tips.</div>
+      <div><strong>Luggage storage:</strong> The <strong>Excess Baggage Company</strong> is in Terminal 1 (not T2 where you land — take the 5-min covered walkway). Hours: Mon–Fri 9am–4:30pm, Sat–Sun 1–4:30pm. Alternatively, <strong>LuggageHero</strong> has drop-off locations near Trinity College (~€5/bag/day) that may be more convenient.</div>
+      <div><strong>Red-eye survival:</strong> You'll be tired — pace yourself. The itinerary above is walkable and gentle. Dublin's compact city centre means nothing is more than 15 minutes on foot from anything else.</div>
+      <div><strong>Weather:</strong> August in Dublin is mild (~18°C/64°F) but famously changeable. Pack a light layer and be ready for a brief rain shower. It will not ruin your day — it's part of the charm.</div>
+      <div><strong>Taxi apps:</strong> Use <strong>Free Now</strong> (most common in Dublin) or <strong>Uber</strong> — both connect to licensed taxis only. Download Free Now before you land.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== LISBON ITINERARY ==================== -->
+<section class="city-section" id="section-lisbonplan">
+  <div class="section-header">
+    <h2>Lisbon <span class="city-accent-lisbon">Itinerary</span></h2>
+    <p>Aug 8 (late arrival) · Aug 9 (full day) · Aug 10 (until 1pm) · Based at MYTHIC SANA Downtown Suites, Baixa<br>
+    Your hotel is on Rua Áurea, steps from Rossio and Praça do Comércio — nearly everything is walkable or a short tram ride away.</p>
+  </div>
+
+  <!-- ARRIVAL NIGHT -->
+  <div style="background:#fffdf7;border:2px solid var(--lisbon);border-radius:12px;padding:28px;margin-bottom:40px;">
+    <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--lisbon);margin-bottom:16px;">✈ August 8 — Arrival Night (9–10pm)</div>
+    <div style="font-size:13px;line-height:1.8;color:var(--mid);">
+      You'll be exhausted after Dublin + a flight, so keep it gentle. Check in with your Golden Sleeves Butler, freshen up, then head down to the <strong>Champagne Bar</strong> or <strong>BLACK MOON Gastrobar</strong> — both right in the hotel, serving cocktails and light bites into the evening. This is the perfect "we made it" first toast over Lisbon. <br><br>
+      After that, you're steps from the Baixa's grid of pedestrian streets and just a short walk up into Chiado if you want more buzz. Grab a late dinner or a glass of Portuguese wine at a nearby spot (try <strong>Taberna da Rua das Flores</strong> in Chiado for petiscos — Portuguese small plates, about a 10-minute walk). Don't overdo it tonight. You have a full day tomorrow.
+    </div>
+    <div style="margin-top:14px;font-size:11px;font-weight:600;color:var(--muted);">💡 Use your $100 F&B credit at BLACK MOON Gastrobar or the Champagne Bar tonight — ideal first use.</div>
+  </div>
+
+  <!-- DAY 1 MAP -->
+  <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--lisbon);margin-bottom:12px;">🗺 Day 1 Stops</div>
+  <div class="map-container" id="map-lisbonday1" style="height:380px;margin-bottom:12px;"></div>
+  <p style="font-size:11px;color:var(--muted);margin-bottom:36px;text-align:center;letter-spacing:0.5px;">📍 Full Day 1 itinerary plotted · click pins for details</p>
+
+  <!-- DAY 1 HEADER -->
+  <div style="background:var(--lisbon);color:white;border-radius:10px;padding:16px 24px;margin-bottom:28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+    <div style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;">August 9 — Full Day in Lisbon</div>
+    <div style="font-size:11px;opacity:0.85;letter-spacing:1px;">Alfama → Chiado → Belém → Fado dinner</div>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:0;">
+
+    <!-- STOP 1: Breakfast -->
+    <div style="display:flex;gap:20px;padding:24px 0;border-bottom:1px solid rgba(0,0,0,0.07);">
+      <div style="flex-shrink:0;width:48px;height:48px;background:var(--lisbon);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;">1</div>
+      <div style="flex:1;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;">Breakfast at BLACK MOON Gastrobar</div>
+          <div style="background:#fdf0ed;border:1px solid var(--lisbon);border-radius:8px;padding:5px 12px;font-size:11px;font-weight:700;color:var(--lisbon);white-space:nowrap;">9:00 AM · 45 min</div>
+        </div>
+        <div style="font-size:13px;line-height:1.7;color:var(--mid);margin-top:10px;">
+          Breakfast for two is included as part of your Amex FHR booking — start at <strong>BLACK MOON Gastrobar</strong> on the ground floor, facing Rua do Ouro. Order a pastel de nata with an espresso (a "bica" in Lisbon) before heading out.
+        </div>
+      </div>
+    </div>
+
+    <!-- STOP 2: Santa Justa Elevator viewpoint -->
+    <div style="display:flex;gap:20px;padding:24px 0;border-bottom:1px solid rgba(0,0,0,0.07);">
+      <div style="flex-shrink:0;width:48px;height:48px;background:var(--lisbon);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;">2</div>
+      <div style="flex:1;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;">Santa Justa Elevator</div>
+          <div style="background:#fdf0ed;border:1px solid var(--lisbon);border-radius:8px;padding:5px 12px;font-size:11px;font-weight:700;color:var(--lisbon);white-space:nowrap;">9:45 AM · 20 min</div>
+        </div>
+        <div style="font-size:13px;line-height:1.7;color:var(--mid);margin-top:10px;">
+          A 5-minute walk from the hotel brings you to this ornate cast-iron lift connecting Baixa up to Chiado — ride to the top platform for one of Lisbon's best rooftop panoramas over the Baixa grid, São Jorge Castle, and the river. Free to view from the connecting walkway level; a small fee for the very top viewing platform. Quick, close, and a perfect warm-up before the crowds arrive.
+        </div>
+        <div style="font-size:11px;font-weight:600;color:var(--muted);margin-top:8px;">🎟 Small fee for top platform · 5 min walk from hotel</div>
+      </div>
+    </div>
+
+    <!-- STOP 3: Tram 28 to Alfama -->
+    <div style="display:flex;gap:20px;padding:24px 0;border-bottom:1px solid rgba(0,0,0,0.07);">
+      <div style="flex-shrink:0;width:48px;height:48px;background:var(--lisbon);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;">3</div>
+      <div style="flex:1;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;">Tram 28 → Alfama & São Jorge Castle (exterior)</div>
+          <div style="background:#fdf0ed;border:1px solid var(--lisbon);border-radius:8px;padding:5px 12px;font-size:11px;font-weight:700;color:var(--lisbon);white-space:nowrap;">10:15 AM – 12:30 PM · ~2h</div>
+        </div>
+        <div style="font-size:13px;line-height:1.7;color:var(--mid);margin-top:10px;">
+          Hop on the iconic yellow <strong>Tram 28</strong> from the Rua da Conceição stop in Baixa, about a 5-minute walk from your hotel — it winds through some of Lisbon's most photogenic streets all the way up to Alfama. Buy a Viva Viagem transit card rather than paying cash (cheaper). Ride up to the <strong>Miradouro de Santa Luzia</strong> stop for your first azulejo-tiled viewpoint over the Alfama rooftops and river — this one's free and arguably as good as anything inside the castle walls. From there it's a 5-minute walk to <strong>Miradouro das Portas do Sol</strong>, another free terrace with sweeping views toward the castle itself. Continue up to <strong>Castelo de São Jorge</strong> and walk the exterior ramparts and gardens — you won't need a ticket to enjoy the approach, the walls, and the views from just outside the paid entrance; skip the ticket line and let the peacocks (often visible near the outer gate) be your photo op instead.
+        </div>
+        <div style="font-size:11px;font-weight:600;color:var(--muted);margin-top:8px;">🆓 No ticket needed — viewpoints and exterior only · 🦚 Peacocks sometimes near the outer gate · ⏱ Allow 90 min total for the wander</div>
+      </div>
+    </div>
+
+    <!-- STOP 4: Lunch -->
+    <div style="display:flex;gap:20px;padding:24px 0;border-bottom:1px solid rgba(0,0,0,0.07);">
+      <div style="flex-shrink:0;width:48px;height:48px;background:var(--lisbon);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;">4</div>
+      <div style="flex:1;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;">Lunch in Alfama or Praça do Comércio</div>
+          <div style="background:#fdf0ed;border:1px solid var(--lisbon);border-radius:8px;padding:5px 12px;font-size:11px;font-weight:700;color:var(--lisbon);white-space:nowrap;">12:30 – 1:30 PM</div>
+        </div>
+        <div style="font-size:13px;line-height:1.7;color:var(--mid);margin-top:10px;">
+          Walk down from Alfama to the waterfront. <strong>Praça do Comércio</strong> (Commerce Square) is one of the most stunning public spaces in Europe — a grand riverside plaza with the Arco da Rua Augusta triumphal arch. Grab lunch at one of the cafés under the yellow arcades. Or walk a few minutes to <strong>Time Out Market</strong> at Ribeira for a huge variety of the best Lisbon food vendors under one roof. Go early to beat the midday rush for seats.
+        </div>
+        <div style="font-size:11px;font-weight:600;color:var(--muted);margin-top:8px;">🍽 Must-try: bacalhau (salt cod), grilled sardines, bifana pork sandwich</div>
+      </div>
+    </div>
+
+    <!-- STOP 5: Belém -->
+    <div style="display:flex;gap:20px;padding:24px 0;border-bottom:1px solid rgba(0,0,0,0.07);">
+      <div style="flex-shrink:0;width:48px;height:48px;background:var(--lisbon);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;">5</div>
+      <div style="flex:1;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;">Belém: Jerónimos Monastery (exterior) + Pastéis de Belém</div>
+          <div style="background:#fdf0ed;border:1px solid var(--lisbon);border-radius:8px;padding:5px 12px;font-size:11px;font-weight:700;color:var(--lisbon);white-space:nowrap;">2:00 – 4:30 PM</div>
+        </div>
+        <div style="font-size:13px;line-height:1.7;color:var(--mid);margin-top:10px;">
+          Take a 15-minute Uber (or the tram/bus) west along the river to Belém. First stop: <strong>Jerónimos Monastery</strong> — a UNESCO World Heritage site and one of Portugal's architectural crown jewels. The facade alone is worth the trip: intricate Manueline stonework, maritime motifs, and the grand south portal are all fully visible (and free) from the plaza and gardens outside, no ticket needed since you're skipping the cloisters and interior. Then a 5-minute walk to <strong>Pastéis de Belém</strong> — the original bakery that invented the pastel de nata recipe in 1837. Eat yours warm with cinnamon and powdered sugar at the riverside. The Belém Tower is currently under renovation and closed to entry anyway — still worth a riverside walk past it for the photo.
+        </div>
+        <div style="font-size:11px;font-weight:600;color:var(--muted);margin-top:8px;">🆓 No ticket needed — facade and gardens only · 🥐 Pastéis de Belém opens 8am · ⚠️ Belém Tower closed for renovation</div>
+      </div>
+    </div>
+
+    <!-- STOP 6: Sunset drinks -->
+    <div style="display:flex;gap:20px;padding:24px 0;border-bottom:1px solid rgba(0,0,0,0.07);">
+      <div style="flex-shrink:0;width:48px;height:48px;background:var(--lisbon);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;">6</div>
+      <div style="flex:1;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;">Sunset Drinks — Memmo Alfama Wine Bar & Terrace</div>
+          <div style="background:#fdf0ed;border:1px solid var(--lisbon);border-radius:8px;padding:5px 12px;font-size:11px;font-weight:700;color:var(--lisbon);white-space:nowrap;">7:30 PM · booked</div>
+        </div>
+        <div style="font-size:13px;line-height:1.7;color:var(--mid);margin-top:10px;">
+          Head over to <strong>Memmo Alfama Wine Bar & Terrace</strong> — one of the best sunset views in the city, with the terrace looking out over Alfama's rooftops down to the river. In August, sunset is around 8:30pm, so your 7:30 table gives you time to settle in with a glass of Portuguese wine before the light turns golden.
+        </div>
+        <div style="font-size:11px;font-weight:600;color:var(--muted);margin-top:8px;">🌅 Sunset ~8:30pm in August · Travessa das Merceeiras 27, Lisboa</div>
+        <div style="margin-top:10px;display:inline-flex;align-items:center;gap:6px;padding:4px 12px 4px 10px;border-radius:999px;background:#fdf0ed;border:1px solid var(--lisbon);font-size:10.5px;font-weight:700;color:var(--lisbon);letter-spacing:0.3px;">✓ Reserved · Sun 09 Aug, 7:30 PM · 2 people</div>
+      </div>
+    </div>
+
+    <!-- STOP 7: Fado dinner -->
+    <div style="display:flex;gap:20px;padding:24px 0;">
+      <div style="flex-shrink:0;width:48px;height:48px;background:var(--lisbon);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;">7</div>
+      <div style="flex:1;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;">Fado Dinner — Clube de Fado</div>
+          <div style="background:#fdf0ed;border:1px solid var(--lisbon);border-radius:8px;padding:5px 12px;font-size:11px;font-weight:700;color:var(--lisbon);white-space:nowrap;">9:00 PM · booked</div>
+        </div>
+        <div style="font-size:13px;line-height:1.7;color:var(--mid);margin-top:10px;">
+          A fado dinner is the single most memorable thing you can do in Lisbon, and you're set at one of the city's most prestigious fado houses. <strong>Clube de Fado</strong> (Alfama, near Sé Cathedral) was founded by renowned guitarist Mário Pacheco — upscale, impeccable service, fine Portuguese cuisine, with reviewers raving about the grilled octopus. It's about a 10-minute walk from Memmo Alfama, giving you a relaxed buffer after sunset drinks.
+        </div>
+        <div style="font-size:11px;font-weight:600;color:var(--muted);margin-top:8px;">🎵 Stay silent during performances · 🍷 Wine pairings available · R. de São João da Praça 94</div>
+        <div style="margin-top:10px;display:inline-flex;align-items:center;gap:6px;padding:4px 12px 4px 10px;border-radius:999px;background:#fdf0ed;border:1px solid var(--lisbon);font-size:10.5px;font-weight:700;color:var(--lisbon);letter-spacing:0.3px;">✓ Reserved · Sun 09 Aug, 9:00 PM · 2 people · +351 218 852 704</div>
+      </div>
+    </div>
+
+  </div><!-- /day 1 itinerary -->
+
+  <!-- DAY 2 -->
+  <div style="background:var(--lisbon);color:white;border-radius:10px;padding:16px 24px;margin:40px 0 28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+    <div style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;">August 10 — Morning (until 1pm, then board cruise)</div>
+    <div style="font-size:11px;opacity:0.85;letter-spacing:1px;">Baixa · Chiado · Cruise terminal</div>
+  </div>
+
+  <div style="background:#fffbea;border:1px solid var(--gold);border-radius:10px;padding:18px 20px;margin-bottom:28px;font-size:13px;color:#6b5a2a;line-height:1.7;">
+    ⚓ <strong>Cruise logistics:</strong> The Lisbon cruise terminal (Terminal de Cruzeiros de Lisboa) is right on the waterfront at Praça do Comércio — a roughly 5-minute walk or 5-minute taxi from MYTHIC SANA, even closer than most Lisbon hotels get you. Check your cruise line's boarding instructions, but generally boarding opens 3–4 hours before departure. If your ship departs mid-afternoon, you'd want to be at the terminal by noon at the latest with bags. Ask the Golden Sleeves Butler about arranging a transfer, or it's a short taxi either way.
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:0;">
+
+    <!-- STOP 1: Slow morning -->
+    <div style="display:flex;gap:20px;padding:24px 0;border-bottom:1px solid rgba(0,0,0,0.07);">
+      <div style="flex-shrink:0;width:48px;height:48px;background:#8a7b6a;color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;">A</div>
+      <div style="flex:1;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;">Slow Hotel Breakfast + Pack</div>
+          <div style="background:#f5f0e8;border:1px solid #8a7b6a;border-radius:8px;padding:5px 12px;font-size:11px;font-weight:700;color:#8a7b6a;white-space:nowrap;">8:30 – 9:30 AM</div>
+        </div>
+        <div style="font-size:13px;line-height:1.7;color:var(--mid);margin-top:10px;">
+          Last morning — enjoy a proper sit-down breakfast at BLACK MOON Gastrobar, included with your FHR booking. Pack your bags and check out (4pm guaranteed checkout via FHR, though you'll be heading to the ship before then). Ask the Golden Sleeves Butler to hold your luggage until you're ready to head to the terminal, so you're not dragging bags around Baixa.
+        </div>
+      </div>
+    </div>
+
+    <!-- STOP 2: Baixa & Chiado wander -->
+    <div style="display:flex;gap:20px;padding:24px 0;border-bottom:1px solid rgba(0,0,0,0.07);">
+      <div style="flex-shrink:0;width:48px;height:48px;background:#8a7b6a;color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;">B</div>
+      <div style="flex:1;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;">Baixa Wander + Livraria Bertrand</div>
+          <div style="background:#f5f0e8;border:1px solid #8a7b6a;border-radius:8px;padding:5px 12px;font-size:11px;font-weight:700;color:#8a7b6a;white-space:nowrap;">9:30 – 10:30 AM</div>
+        </div>
+        <div style="font-size:13px;line-height:1.7;color:var(--mid);margin-top:10px;">
+          Your hotel sits right on Rua Áurea in the heart of Baixa's grid of pedestrian shopping streets. Wander toward Rossio Square, then climb into <strong>Chiado</strong> (10-minute walk) and stop at <strong>Livraria Bertrand</strong> on Rua Garrett — the world's oldest operating bookshop (open since 1732). Pick up a Portuguese coffee table book or a souvenir. <strong>Príncipe Real</strong> is a further 10-minute walk if you want to stretch it — a lovely upscale neighbourhood with independent design shops, antiques, and a Saturday market (check if there's one on the 10th).
+        </div>
+        <div style="font-size:11px;font-weight:600;color:var(--muted);margin-top:8px;">📚 Livraria Bertrand · oldest bookshop in the world · Rua Garrett 73</div>
+      </div>
+    </div>
+
+    <!-- STOP 3: Final coffee and head to port -->
+    <div style="display:flex;gap:20px;padding:24px 0;">
+      <div style="flex-shrink:0;width:48px;height:48px;background:#8a7b6a;color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;">C</div>
+      <div style="flex:1;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;">Final Espresso → Cruise Terminal</div>
+          <div style="background:#fdf0ed;border:1px solid var(--lisbon);border-radius:8px;padding:5px 12px;font-size:11px;font-weight:700;color:var(--lisbon);white-space:nowrap;">11:00 AM – 1:00 PM</div>
+        </div>
+        <div style="font-size:13px;line-height:1.7;color:var(--mid);margin-top:10px;">
+          One final bica (espresso) at a café on Rua Áurea or the Rossio watching Lisbon life go by. Then collect your bags from the hotel, hop in a short taxi, and head to the cruise terminal — it's practically around the corner. The adventure begins! 🚢
+        </div>
+        <div style="font-size:11px;font-weight:600;color:var(--muted);margin-top:8px;">🚢 Lisbon Cruise Terminal · Rocha do Conde de Óbidos · ~5 min from hotel</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- PRACTICAL TIPS -->
+  <div style="background:var(--warm-white);border:1px solid rgba(0,0,0,0.08);border-radius:12px;padding:24px;margin-top:40px;">
+    <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">🇵🇹 Lisbon Practical Tips</div>
+    <div style="display:grid;gap:10px;font-size:13px;line-height:1.6;color:var(--mid);">
+      <div><strong>Getting around:</strong> Download the <strong>Bolt app</strong> (cheaper than Uber in Lisbon). For trams/metro, buy a <strong>Viva Viagem card</strong> (€0.50) and load it with credit — much cheaper than single tickets.</div>
+      <div><strong>Tram 28 tip:</strong> It's famous and therefore crowded with pickpockets. Keep your bag in front of you. Consider doing the route early morning or taking an Uber for convenience.</div>
+      <div><strong>August heat:</strong> Lisbon in August can hit 35°C / 95°F. Start early, carry water, wear sunscreen, and take a long mid-afternoon break at the hotel or in a café during the hottest hours (2–4pm).</div>
+      <div><strong>Fado etiquette:</strong> Complete silence during performances. No talking, no phone calls. Applaud warmly at the end. It's an emotional and deeply cultural experience — treat it as such.</div>
+      <div><strong>What to eat:</strong> Pastéis de nata (custard tarts), bacalhau (salt cod in dozens of preparations), grilled sardines, piri piri chicken, bifana pork sandwiches, Vinho Verde (light white wine), Ginjinha (cherry liqueur — sold in chocolate cups on Rua das Portas de Santo Antão).</div>
+      <div><strong>Language:</strong> Say "obrigado" (men) / "obrigada" (women) for thank you. Never speak Spanish — Portuguese is its own proud language.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CRUISE ITINERARY (VOYAGE DOSSIER) ==================== -->
+<section class="city-section" id="section-cruise" style="padding:0;max-width:none;">
+<div class="vd-scope">
+
+
+<header class="hero">
+  <div class="eyebrow">Explora III · Voyage Dossier</div>
+  <h1 class="title">Lisbon to Southampton</h1>
+  <p class="subtitle"><span class="mono">10&ndash;17 AUGUST 2026</span> &nbsp;·&nbsp; five ports, one total solar eclipse</p>
+
+  <div class="routeline">
+    <svg viewBox="0 0 720 70" preserveAspectRatio="xMidYMid meet">
+      <line x1="20" y1="30" x2="700" y2="30" stroke="#3a4a5f" stroke-width="1"/>
+      <!-- stops -->
+      <g>
+        <circle cx="20" cy="30" r="4" fill="#c9a55a"/>
+        <text x="20" y="16" text-anchor="middle" class="stop-label">Lisbon</text>
+        <text x="20" y="48" text-anchor="middle" class="stop-date">10 Aug</text>
+      </g>
+      <g>
+        <circle cx="150" cy="30" r="4" fill="#c9a55a"/>
+        <text x="150" y="16" text-anchor="middle" class="stop-label">Porto</text>
+        <text x="150" y="48" text-anchor="middle" class="stop-date">11 Aug</text>
+      </g>
+      <g>
+        <circle cx="280" cy="30" r="5" fill="#c9a55a" stroke="#f1e8d6" stroke-width="1.5"/>
+        <text x="280" y="16" text-anchor="middle" class="stop-label" fill="#e8c874">A Coruña ☾</text>
+        <text x="280" y="48" text-anchor="middle" class="stop-date">12 Aug</text>
+      </g>
+      <g>
+        <circle cx="410" cy="30" r="4" fill="#c9a55a"/>
+        <text x="410" y="16" text-anchor="middle" class="stop-label">Bilbao</text>
+        <text x="410" y="48" text-anchor="middle" class="stop-date">13 Aug</text>
+      </g>
+      <g>
+        <circle cx="510" cy="30" r="4" fill="#c9a55a"/>
+        <text x="510" y="16" text-anchor="middle" class="stop-label">Pauillac</text>
+        <text x="510" y="48" text-anchor="middle" class="stop-date">14 Aug</text>
+      </g>
+      <g>
+        <circle cx="610" cy="30" r="4" fill="#c9a55a"/>
+        <text x="610" y="16" text-anchor="middle" class="stop-label">St-Jean-de-Luz</text>
+        <text x="610" y="48" text-anchor="middle" class="stop-date">15 Aug</text>
+      </g>
+      <g>
+        <circle cx="700" cy="30" r="4" fill="#8a95a3"/>
+        <text x="700" y="16" text-anchor="middle" class="stop-label">Southampton</text>
+        <text x="700" y="48" text-anchor="middle" class="stop-date">17 Aug</text>
+      </g>
+    </svg>
+  </div>
+</header>
+
+<main>
+
+  <!-- DAY 1 -->
+  <section class="day">
+    <div class="day-head">
+      <div class="day-num">01</div>
+      <div>
+        <div class="port-name">Depart Lisbon</div>
+        <div class="port-meta">MON 10 AUG &nbsp;·&nbsp; boarding day</div>
+      </div>
+    </div>
+    <div class="timeline">
+      <div class="item"><span class="time">18:00</span><div class="what">Departure</div></div>
+    </div>
+    <div class="dinner">🍽 DINNER ONBOARD · 19:30</div>
+  </section>
+
+  <div class="route-divider">
+    <div class="seg"></div>
+    <div class="bearing"><div class="dist">~150 nm / 278 km</div><div class="note">Lisbon → Porto, straight-line</div></div>
+    <div class="seg"></div>
+  </div>
+
+  <!-- DAY 2: PORTO -->
+  <section class="day">
+    <div class="day-head">
+      <div class="day-num">02</div>
+      <div>
+        <div class="port-name">Porto&ndash;Leixões</div>
+        <div class="port-meta">TUE 11 AUG &nbsp;·&nbsp; in port 08:00–18:00</div>
+      </div>
+    </div>
+    <div class="ashore">
+      Leixões terminal is <b>~9&ndash;10 km</b> from central Porto — not walkable. Metro station sits right beside the terminal; ride in is <b>~15 min</b>. Disembark early (8:00) to give the commute room before the cathedral opens at 9:00.
+    </div>
+    <div class="timeline">
+      <div class="item"><span class="time">08:00</span><div class="what">Disembark, metro into central Porto</div></div>
+      <div class="item"><span class="time">08:20</span><div class="what">Coffee &amp; pastel de nata near the cathedral</div></div>
+      <div class="item"><span class="time">09:00</span><div class="what">Porto Cathedral</div><div class="addr">Terreiro da Sé, 4050-573 Porto</div></div>
+      <div class="item optional"><span class="time">09:30</span><div class="what">Torre dos Clérigos</div><div class="addr">R. de São Filipe de Nery, 4050-546 Porto</div><div class="ticket-tag">Tickets booked · 2x adult · Order #52236</div></div>
+      <div class="item"><span class="time">10:30</span><div class="what">Palácio da Bolsa — guided tour, 30 min</div><div class="addr">R. de Ferreira Borges 11, 4050-253 Porto</div><div class="note">Book ahead — tours run every ~20 min and fill up.</div><div class="ticket-tag">Booked · Reserva Nº 34155 · time/language chosen at ticket office</div></div>
+      <div class="item"><span class="time">11:00</span><div class="what">São Bento train station — azulejo tile hall</div><div class="addr">Praça de Almeida Garrett, 4000-069 Porto</div></div>
+      <div class="item"><span class="time">11:20</span><div class="what">Coffee at C'alma Coffee Room</div><div class="addr">R. de Sampaio Bruno 12, 2º piso, 4000-439 Porto</div></div>
+      <div class="item"><span class="time">12:00</span><div class="what">Gaia cable car down to the river</div><div class="addr">Top station: R. Rocha Leão 236, Vila Nova de Gaia</div><div class="note">€7 one-way, ~5 min — skips the steep walk down.</div></div>
+      <div class="item"><span class="time">12:30</span><div class="what">Taylor's Port — Tour &amp; Tasting</div><div class="addr">Rua do Choupelo 250, 4400-088 Vila Nova de Gaia</div><div class="ticket-tag">Booked · 12:40 PM · 2 people · Ref E6T9KC92</div></div>
+      <div class="item"><span class="time">14:30</span><div class="what">Quevedo Lodge — Porto Discovery tasting</div><div class="addr">R. de Santa Marinha 77, 4400-291 Vila Nova de Gaia</div><div class="note">Confirmed time is 15:00, not 14:30 — adjust the walk-back window accordingly.</div><div class="ticket-tag">Booked · 15:00 · Open Ticket / QR on file</div></div>
+      <div class="item"><span class="time">15:15</span><div class="what">Claus Porto — soaps &amp; fragrance</div><div class="addr">Rua do Choupelo 43, Vila Nova de Gaia</div></div>
+      <div class="item"><span class="time">15:45</span><div class="what">Free wander — Ribeira waterfront, cable car back up</div></div>
+      <div class="item"><span class="time">16:15</span><div class="what">Head back toward metro / port</div></div>
+      <div class="item"><span class="time">16:45</span><div class="what">Reboard</div></div>
+    </div>
+    <div class="dinner">🍽 DINNER ONBOARD · 19:30</div>
+  </section>
+
+  <div class="route-divider">
+    <div class="seg"></div>
+    <div class="bearing"><div class="dist">~132 nm / 244 km</div><div class="note">Porto → A Coruña, straight-line</div></div>
+    <div class="seg"></div>
+  </div>
+
+  <!-- DAY 3: A CORUÑA -->
+  <section class="day">
+    <div class="day-head">
+      <div class="day-num">03</div>
+      <div>
+        <div class="port-name">A Coruña <span style="color:var(--brass); font-size:0.7em;">☾ eclipse day</span></div>
+        <div class="port-meta">WED 12 AUG &nbsp;·&nbsp; in port 09:00–19:00</div>
+      </div>
+    </div>
+    <div class="ashore">
+      Ships dock right at the edge of the old town — <b>genuinely walkable</b>, no metro or shuttle needed. One of the easiest ports on this route.
+    </div>
+    <div class="timeline">
+      <div class="item"><span class="time">09:00</span><div class="what">Walk toward the port / lighthouse area</div></div>
+      <div class="item"><span class="time">09:30</span><div class="what">Coffee at Conuco Coffee Roasters</div><div class="addr">Rúa Orzán, 178, 15003 A Coruña</div></div>
+      <div class="item"><span class="time">10:15</span><div class="what">Torre de Hércules — 30 min tour</div><div class="addr">Av. Navarra, s/n, 15002 A Coruña</div></div>
+      <div class="item"><span class="time">10:45</span><div class="what">Terraza Aquarium viewpoint — seals &amp; lighthouse view</div><div class="addr">Paseo al Francisco Vazquez, 34</div></div>
+      <div class="item"><span class="time">11:00</span><div class="what">Parque Escultórico — coastal sculpture walk</div></div>
+      <div class="item"><span class="time">12:10</span><div class="what">Free time / wander before lunch</div></div>
+      <div class="item"><span class="time">13:00</span><div class="what">Lunch — A Taberna de Cunqueiro</div><div class="ticket-tag">Reserved · 13:00 · 2 persons · table held 2 hrs</div></div>
+      <div class="item"><span class="time">15:00</span><div class="what">Castelo de Santo Antón</div></div>
+      <div class="item"><span class="time">16:00</span><div class="what">Orzán Beach walk back toward port</div></div>
+      <div class="item"><span class="time">17:30</span><div class="what">Reboard</div></div>
+    </div>
+    <div class="dinner">🍽 DINNER ONBOARD · 18:00 — early, ahead of the eclipse</div>
+
+    <div class="eclipse">
+      <h3>Total Solar Eclipse</h3>
+      <div class="sub">Viewed underway, ~90 min after departing A Coruña · times local (CEST)</div>
+      <div class="phases">
+        <div class="phase"><span class="lbl">C1</span><span>Partial begins — glasses on</span><span class="alt">19:31</span></div>
+        <div class="phase peak"><span class="lbl">C2</span><span>Totality begins</span><span class="alt">20:28</span></div>
+        <div class="phase peak"><span class="lbl">MAX</span><span>Maximum — sun at 11.9°, bearing 279° (WNW)</span><span class="alt">20:28</span></div>
+        <div class="phase peak"><span class="lbl">C3</span><span>Totality ends (~1 min 17 sec) — glasses back on</span><span class="alt">20:29</span></div>
+        <div class="phase"><span class="lbl">C4</span><span>Partial ends</span><span class="alt">21:22</span></div>
+        <div class="phase"><span class="lbl">SET</span><span>Sunset</span><span class="alt">21:41</span></div>
+      </div>
+      <p class="note">Departure (19:00) is timed before the eclipse begins. Explora III's sailing was purpose-built around this event — the route toward Bilbao tracks the path of totality. Confirm with the concierge once aboard whether there's an organized viewing gathering.</p>
+    </div>
+  </section>
+
+  <div class="route-divider">
+    <div class="seg"></div>
+    <div class="bearing"><div class="dist">~235 nm / 435 km</div><div class="note">A Coruña → Bilbao, straight-line</div></div>
+    <div class="seg"></div>
+  </div>
+
+  <!-- DAY 4: BILBAO -->
+  <section class="day">
+    <div class="day-head">
+      <div class="day-num">04</div>
+      <div>
+        <div class="port-name">Bilbao&ndash;Getxo</div>
+        <div class="port-meta">THU 13 AUG &nbsp;·&nbsp; in port 09:00–19:00</div>
+      </div>
+    </div>
+    <div class="ashore">
+      Cruise terminal sits in Getxo, <b>~15&ndash;20 km</b> from central Bilbao — not walkable. Options: ship shuttle to Plaza Moyúa (~€15&ndash;20), metro via the free port shuttle to Areeta/Neguri station (~€4 round trip, ~25 min), or taxi (~€30&ndash;40, ~25&ndash;30 min). Guggenheim doesn't open until <b>12:30</b>, so the old town comes first.
+    </div>
+    <div class="timeline">
+      <div class="item"><span class="time">09:00</span><div class="what">Depart ship — shuttle or metro into Bilbao</div></div>
+      <div class="item"><span class="time">09:45</span><div class="what">Arrive Bilbao — riverfront promenade walk</div></div>
+      <div class="item"><span class="time">10:15</span><div class="what">Wander Casco Viejo — Ribera Market, the Seven Streets</div></div>
+      <div class="item"><span class="time">11:45</span><div class="what">Walk to the Guggenheim (~10 min from Old Town)</div></div>
+      <div class="item"><span class="time">12:30</span><div class="what">Guggenheim Museum Bilbao</div><div class="ticket-tag">2x General Admission booked · 12:30–13:00 entry window</div></div>
+      <div class="item"><span class="time">14:30</span><div class="what">Walk back to Casco Viejo</div></div>
+      <div class="item"><span class="time">14:45</span><div class="what">Pintxos — Gure Toki or Sorginzulo</div><div class="addr">Casco Viejo, near Plaza Nueva</div></div>
+      <div class="item"><span class="time">15:30</span><div class="what">Pintxos — Antxoa Taberna</div><div class="addr">Casco Viejo</div></div>
+      <div class="item"><span class="time">16:15</span><div class="what">Pintxos — Bar Santamaría</div><div class="addr">Casco Viejo</div></div>
+      <div class="item"><span class="time">17:00</span><div class="what">Head back toward port — build in the full 25&ndash;30 min transit</div></div>
+      <div class="item"><span class="time">17:45</span><div class="what">Reboard</div></div>
+    </div>
+    <div class="dinner">🍽 DINNER ONBOARD · 20:00</div>
+  </section>
+
+  <div class="route-divider">
+    <div class="seg"></div>
+    <div class="bearing"><div class="dist">~149 nm / 277 km</div><div class="note">Bilbao → Pauillac, straight-line</div></div>
+    <div class="seg"></div>
+  </div>
+
+  <!-- DAY 5: PAUILLAC -->
+  <section class="day">
+    <div class="day-head">
+      <div class="day-num">05</div>
+      <div>
+        <div class="port-name">Pauillac</div>
+        <div class="port-meta">FRI 14 AUG &nbsp;·&nbsp; in port 08:30–20:00</div>
+      </div>
+    </div>
+    <div class="ashore">
+      Explora III docks at the newer <b>Trompeloup terminal</b>, ~2.6 km north of town — a taxi leg both ways. Taxis here are scarce and often need advance booking; <b>Sali Taxi et Ambulances Costa</b> is a local operator based in Pauillac worth calling ahead. Château Grand-Puy Ducasse sits right in town, so no second transport leg is needed for a tasting.
+    </div>
+    <div class="timeline">
+      <div class="item"><span class="time">08:30</span><div class="what">Disembark at Trompeloup terminal</div></div>
+      <div class="item"><span class="time">08:40</span><div class="what">Taxi into Pauillac town center (~10&ndash;15 min)</div></div>
+      <div class="item"><span class="time">09:00</span><div class="what">Maison du Tourisme et des Vins — pick up the town walking map</div></div>
+      <div class="item"><span class="time">09:15</span><div class="what">Town historical walk along the Gironde estuary</div></div>
+      <div class="item"><span class="time">11:00</span><div class="what">Château Grand-Puy Ducasse — L'envol tour &amp; tasting</div><div class="addr">4 Quai Antoine Ferchaud, 33250 Pauillac</div><div class="note">Voucher on file — hand to the château on arrival.</div><div class="ticket-tag">Booked · 11:00 · 2 guests · Voucher WL-202607-5BAE23BAE55FDC6B</div></div>
+      <div class="item"><span class="time">12:15</span><div class="what">Lunch in Pauillac town</div></div>
+      <div class="item"><span class="time">13:45</span><div class="what">Free time — estuary walk, shops, marina views</div></div>
+      <div class="item"><span class="time">18:45</span><div class="what">Taxi back to Trompeloup terminal</div></div>
+      <div class="item"><span class="time">19:30</span><div class="what">Reboard</div></div>
+    </div>
+    <div class="dinner">🍽 DINNER ONBOARD · 20:30 — later, time to freshen up</div>
+  </section>
+
+  <div class="route-divider">
+    <div class="seg"></div>
+    <div class="bearing"><div class="dist">~117 nm / 217 km</div><div class="note">Pauillac → Saint-Jean-de-Luz, straight-line</div></div>
+    <div class="seg"></div>
+  </div>
+
+  <!-- DAY 6: SAINT-JEAN-DE-LUZ -->
+  <section class="day">
+    <div class="day-head">
+      <div class="day-num">06</div>
+      <div>
+        <div class="port-name">Saint-Jean-de-Luz</div>
+        <div class="port-meta">SAT 15 AUG &nbsp;·&nbsp; in port 08:00–18:00</div>
+      </div>
+    </div>
+    <div class="ashore">
+      Ship anchors offshore; passengers tender ashore, landing <b>~500 m&ndash;1 km</b> from downtown — an easy walk once ashore, no further transport needed. Note: due to rough Atlantic seas this coast occasionally forces a diversion to Bayonne (~25 km away) — worth checking the ship's daily program.
+    </div>
+    <div class="timeline">
+      <div class="item"><span class="time">09:00</span><div class="what">Les Halles market</div><div class="addr">18b Bd Victor Hugo, 64500 Saint-Jean-de-Luz</div><div class="note">Saturday is the liveliest day — extra outdoor stalls open.</div></div>
+      <div class="item"><span class="time">09:45</span><div class="what">Église Saint-Jean-Baptiste — where Louis XIV married</div><div class="addr">Rue Léon Gambetta</div></div>
+      <div class="item"><span class="time">10:15</span><div class="what">Promenade Jacques Thibaud</div></div>
+      <div class="item"><span class="time">10:45</span><div class="what">Botanical Garden — no reservation needed</div><div class="addr">31 Rue Gaëtan de Bernoville</div></div>
+      <div class="item"><span class="time">11:45</span><div class="what">Digue de Sainte-Barbe — viewpoint</div><div class="addr">Prom. des Rochers</div></div>
+      <div class="item"><span class="time">13:00</span><div class="what">Lunch — Toki Goxoa</div><div class="addr">7 Galerie La Pergola, Pl. Maurice Ravel</div><div class="note">Try the talo — a traditional Basque filled corn cake.</div></div>
+      <div class="item"><span class="time">14:15</span><div class="what">Wander Rue Gambetta — TTILIKA, Un Barbu et une Blonde</div></div>
+      <div class="item"><span class="time">15:00</span><div class="what">Grande Plage — sheltered bay, calm safe swimming</div></div>
+      <div class="item"><span class="time">17:30</span><div class="what">Reboard</div></div>
+    </div>
+    <div class="dinner">🍽 DINNER ONBOARD · 19:30</div>
+  </section>
+
+  <div class="route-divider">
+    <div class="seg"></div>
+    <div class="bearing"><div class="dist">~451 nm / 835 km</div><div class="note">Saint-Jean-de-Luz → Southampton, straight-line</div></div>
+    <div class="seg"></div>
+  </div>
+
+  <!-- DAY 7: SEA DAY -->
+  <section class="day">
+    <div class="day-head">
+      <div class="day-num">07</div>
+      <div>
+        <div class="port-name">Sea Day</div>
+        <div class="port-meta">SUN 16 AUG</div>
+      </div>
+    </div>
+    <div class="rest">Rest day at sea before disembarkation — a good night for a specialty restaurant onboard.</div>
+    <div class="dinner">🍽 DINNER · 19:30</div>
+  </section>
+
+  <!-- DAY 8: SOUTHAMPTON -->
+  <section class="day">
+    <div class="day-head">
+      <div class="day-num">08</div>
+      <div>
+        <div class="port-name">Arrive Southampton</div>
+        <div class="port-meta">MON 17 AUG</div>
+      </div>
+    </div>
+    <div class="timeline">
+      <div class="item"><span class="time">07:00</span><div class="what">Arrival, disembarkation</div></div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <h2>Field Notes</h2>
+    <div class="field-notes">
+      <div class="note-block">
+        <b>Getting a car</b>
+        <p>Bolt covers Porto, A Coruña, and Bilbao reliably. Uber, Cabify, and FreeNow also work in Spain. In small French towns (Pauillac, Saint-Jean-de-Luz) app coverage thins out — pre-arrange a taxi or ask venues to call one.</p>
+      </div>
+      <div class="note-block">
+        <b>Card vs. cash</b>
+        <p>Bring Visa/Mastercard (Amex and Discover have patchy acceptance). Carry roughly €50&ndash;100 cash as backup, especially in Porto and small French towns where card readers are least reliable.</p>
+      </div>
+      <div class="note-block">
+        <b>Eclipse — Aug 12</b>
+        <p>Certified glasses confirmed packed. Check with the concierge once aboard for any organized viewing plan — the ship carries onboard science presenter Huw James and astronaut Helen Sharman for the occasion.</p>
+      </div>
+      <div class="note-block">
+        <b>Bookings — all confirmed ✓</b>
+        <p>Torre dos Clérigos, Palácio da Bolsa, Taylor's Port, and Quevedo Lodge/Porto Discovery (all Porto) · A Taberna de Cunqueiro (A Coruña) · Guggenheim Bilbao ×2 · Château Grand-Puy Ducasse (Pauillac). Still to arrange: Pauillac taxi for the full day, via Sali Taxi et Ambulances Costa — no confirmation on file yet.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+</div>
+</section>
+
+<!-- ==================== LONDON ITINERARY ==================== -->
+<section class="city-section" id="section-londonplan">
+  <div class="section-header">
+    <h2>London <span class="city-accent-london">Itinerary</span></h2>
+    <p>Aug 17 (afternoon arrival from Southampton) · Aug 18 (morning only, fly home 5pm) · Staying at L'oscar London, Holborn<br>
+    You have roughly <strong>one magical evening</strong> in London, and a short window the next morning before the airport.</p>
+  </div>
+
+  <!-- TIME BUDGET -->
+  <div style="background:#fffbea;border:2px solid var(--gold);border-radius:12px;padding:24px;margin-bottom:36px;">
+    <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#8a6a10;margin-bottom:14px;">⏱ Your Time Budget — Both Days</div>
+    <div style="display:grid;gap:10px;">
+      <div style="display:flex;gap:12px;align-items:flex-start;font-size:13px;">
+        <span style="background:#8a7b6a;color:white;border-radius:100px;padding:2px 10px;font-size:10px;font-weight:700;white-space:nowrap;flex-shrink:0;">Aug 17 · AM</span>
+        <span><strong>Disembark Southampton.</strong> Disembarkation typically begins no earlier than 7am. Expect to be off the ship and through the terminal with bags by <strong>9–10am</strong> depending on your assigned group. Put your luggage outside your cabin the night before — it'll be waiting in the terminal. Keep a carry-on with overnight essentials.</span>
+      </div>
+      <div style="display:flex;gap:12px;align-items:flex-start;font-size:13px;">
+        <span style="background:#8a7b6a;color:white;border-radius:100px;padding:2px 10px;font-size:10px;font-weight:700;white-space:nowrap;flex-shrink:0;">Aug 17 · ~10am</span>
+        <span><strong>Taxi to Southampton Central station (~10 min).</strong> South Western Railway runs direct trains to London Waterloo roughly 3–4 times per hour, with the fastest journey taking about 1h 14m. Book tickets in advance on Trainline for best prices. Aim for the 10am–10:30am train to arrive in London by noon.</span>
+      </div>
+      <div style="display:flex;gap:12px;align-items:flex-start;font-size:13px;">
+        <span style="background:#2d5a8e;color:white;border-radius:100px;padding:2px 10px;font-size:10px;font-weight:700;white-space:nowrap;flex-shrink:0;">Aug 17 · ~12pm</span>
+        <span><strong>Arrive London Waterloo.</strong> Take the Tube (Waterloo & City line to Bank, then Central line to Holborn — or simpler, a taxi, ~20 min) to L'oscar London. Your reservation shows standard check-in at 3:00 PM, so you'll likely be storing bags rather than getting into the room right away — ask about early check-in when available, but don't count on it.</span>
+      </div>
+      <div style="display:flex;gap:12px;align-items:flex-start;font-size:13px;">
+        <span style="background:#c25b3f;color:white;border-radius:100px;padding:2px 10px;font-size:10px;font-weight:700;white-space:nowrap;flex-shrink:0;">Aug 18 · 12:00pm</span>
+        <span><strong>Checkout.</strong> Your reservation has checkout at noon. Ask the front desk to hold your bags so you're not dragging them around for the last stretch of the morning.</span>
+      </div>
+      <div style="display:flex;gap:12px;align-items:flex-start;font-size:13px;">
+        <span style="background:#c25b3f;color:white;border-radius:100px;padding:2px 10px;font-size:10px;font-weight:700;white-space:nowrap;flex-shrink:0;">Aug 18 · 1:30pm</span>
+        <span><strong>Leave for Heathrow.</strong> Your flight departs 5pm. Heathrow recommends arriving 3 hours before international flights. Holborn station is a 1-minute walk from the hotel and sits directly on the <strong>Piccadilly line</strong> — direct to all Heathrow terminals in about 55–60 minutes. Leave the hotel by 1:30pm latest to be safe.</span>
+      </div>
+    </div>
+    <div style="margin-top:14px;padding-top:12px;border-top:1px solid rgba(201,168,76,0.3);font-size:12px;color:#6b5a2a;">
+      🕐 <strong>Your usable London time:</strong> ~12pm–3pm (Aug 17 afternoon, pre-check-in), full evening Aug 17, and ~9am–1:30pm on Aug 18. That's a great stretch for one of the world's best cities.
+    </div>
+  </div>
+
+  <!-- MAP -->
+  <div class="map-container" id="map-londonplan" style="height:380px;margin-bottom:12px;"></div>
+  <p style="font-size:11px;color:var(--muted);margin-bottom:36px;text-align:center;letter-spacing:0.5px;">📍 All London stops mapped · click pins for details · L'oscar London is your base</p>
+
+  <!-- AUG 17 AFTERNOON -->
+  <div style="background:var(--london);color:white;border-radius:10px;padding:16px 24px;margin-bottom:28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+    <div style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;">August 17 — Afternoon & Evening</div>
+    <div style="font-size:11px;opacity:0.85;letter-spacing:1px;">Arrive ~noon · Holborn · Dinner · Night out</div>
+  </div>
+
+  <!-- CONFIRMED EVENING NOTE -->
+  <div style="background:#fffdf7;border:2px solid var(--london);border-radius:12px;padding:20px 24px;margin-bottom:28px;font-size:12px;color:#3d2e1e;line-height:1.6;">
+    ✓ <strong>Dinner and theatre are booked</strong> — see stops 3 and 4 below. OpenTable shows changes aren't allowed within 14 days of the Paro reservation, so this is locked in from here.
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:0;">
+
+    <!-- Check in + explore hotel -->
+    <div style="display:flex;gap:20px;padding:24px 0;border-bottom:1px solid rgba(0,0,0,0.07);">
+      <div style="flex-shrink:0;width:48px;height:48px;background:var(--london);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;">1</div>
+      <div style="flex:1;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;">Check In & Explore L'oscar London</div>
+          <div style="background:#e4edf5;border:1px solid var(--london);border-radius:8px;padding:5px 12px;font-size:11px;font-weight:700;color:var(--london);white-space:nowrap;">12:00 – 2:00 PM</div>
+        </div>
+        <div style="font-size:13px;line-height:1.7;color:var(--mid);margin-top:10px;">
+          Official check-in isn't until 3:00 PM, so drop your bags and go explore — but take a few minutes first, because the hotel itself is a destination. L'oscar occupies a restored Grade II former Baptist church headquarters in Holborn, all deep jewel tones, gilded panels, and a seven-storey chandelier. At its heart is <strong>The Baptist</strong> — a restored 1856 octagonal chapel housing the Baptist Bar downstairs and the glass-domed Baptist Grill on the mezzanine above. There's also <strong>Blue Tree Yard</strong>, a small outdoor courtyard tucked behind the hotel. Use your <strong>$100 Amex F&B credit</strong> here later tonight or tomorrow morning at breakfast.
+        </div>
+        <div style="font-size:11px;font-weight:600;color:var(--muted);margin-top:8px;">💡 Use $100 Amex F&B credit at the Baptist Bar, Baptist Grill, or breakfast · 🕐 Official check-in 3:00 PM</div>
+      </div>
+    </div>
+
+    <!-- Afternoon walk -->
+    <div style="display:flex;gap:20px;padding:24px 0;border-bottom:1px solid rgba(0,0,0,0.07);">
+      <div style="flex-shrink:0;width:48px;height:48px;background:var(--london);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;">2</div>
+      <div style="flex:1;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;">Covent Garden → Trafalgar Square (with a Bloomsbury detour)</div>
+          <div style="background:#e4edf5;border:1px solid var(--london);border-radius:8px;padding:5px 12px;font-size:11px;font-weight:700;color:var(--london);white-space:nowrap;">2:00 – 5:00 PM</div>
+        </div>
+        <div style="font-size:13px;line-height:1.7;color:var(--mid);margin-top:10px;">
+          You're right on the border of Holborn and Bloomsbury, a few minutes' walk from the <strong>British Museum</strong> if you want a free peek at the Rosetta Stone and the Great Court's glass roof — even 30 minutes is worthwhile. Then head south toward <strong>Covent Garden</strong> (10–12 min walk) — the Victorian market building is always full of street performers and an electric atmosphere; in August it's at its liveliest, and it's also where you'll be back for dinner tonight. From there, a 10-minute walk south brings you to <strong>Trafalgar Square</strong> and the National Gallery steps — one of London's most spectacular free views, with Nelson's Column, the bronze lions, and the grand sweep of Whitehall behind it.
+        </div>
+        <div style="font-size:11px;font-weight:600;color:var(--muted);margin-top:8px;">🆓 All free · 🏛 British Museum: skip the line, no ticket needed for general admission · 🎭 Street performers at Covent Garden · 🦁 Photo at Trafalgar Square lions</div>
+      </div>
+    </div>
+
+    <!-- Dinner -->
+    <div style="display:flex;gap:20px;padding:24px 0;border-bottom:1px solid rgba(0,0,0,0.07);">
+      <div style="flex-shrink:0;width:48px;height:48px;background:var(--london);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;">3</div>
+      <div style="flex:1;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;">Dinner at Paro Indian</div>
+          <div style="background:#e4edf5;border:1px solid var(--london);border-radius:8px;padding:5px 12px;font-size:11px;font-weight:700;color:var(--london);white-space:nowrap;">6:00 PM · booked</div>
+        </div>
+        <div style="font-size:13px;line-height:1.7;color:var(--mid);margin-top:10px;">
+          Table for 2 at <strong>Paro Indian – Covent Garden & Strand</strong>, 21 Wellington St. A relaxed 1.5 hours before curtain, so no need to rush — it's a brisk 10–12 minute walk from here to the Fortune Theatre when you're ready to head over.
+        </div>
+        <div style="font-size:11px;font-weight:600;color:var(--muted);margin-top:8px;">📍 21 Wellington St, Covent Garden · 🚶 10–12 min walk to the theatre</div>
+        <div style="margin-top:10px;display:inline-flex;align-items:center;gap:6px;padding:4px 12px 4px 10px;border-radius:999px;background:#e4edf5;border:1px solid var(--london);font-size:10.5px;font-weight:700;color:var(--london);letter-spacing:0.3px;">✓ Reserved · Mon 17 Aug, 6:00 PM · confirmation #86378</div>
+      </div>
+    </div>
+
+    <!-- Theatre -->
+    <div style="display:flex;gap:20px;padding:24px 0;border-bottom:1px solid rgba(0,0,0,0.07);">
+      <div style="flex-shrink:0;width:48px;height:48px;background:var(--london);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;">4</div>
+      <div style="flex:1;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;">Operation Mincemeat: A New Musical</div>
+          <div style="background:#e4edf5;border:1px solid var(--london);border-radius:8px;padding:5px 12px;font-size:11px;font-weight:700;color:var(--london);white-space:nowrap;">7:30 PM · booked</div>
+        </div>
+        <div style="font-size:13px;line-height:1.7;color:var(--mid);margin-top:10px;">
+          Stalls D10 & D11 at the <strong>Fortune Theatre</strong>, Russell St, Covent Garden — a 10-minute walk from Paro. Have both mobile tickets pulled up before you get to the door.
+        </div>
+        <div style="font-size:11px;font-weight:600;color:var(--muted);margin-top:8px;">📍 Fortune Theatre, Russell St · 🎟 Mobile tickets — screenshot as backup</div>
+        <div style="margin-top:10px;display:inline-flex;align-items:center;gap:6px;padding:4px 12px 4px 10px;border-radius:999px;background:#e4edf5;border:1px solid var(--london);font-size:10.5px;font-weight:700;color:var(--london);letter-spacing:0.3px;">✓ Booked · Stalls D10 & D11 · order 40961098</div>
+      </div>
+    </div>
+
+    <!-- After-play drinks -->
+    <div style="display:flex;gap:20px;padding:24px 0;">
+      <div style="flex-shrink:0;width:48px;height:48px;background:var(--london);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;">5</div>
+      <div style="flex:1;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;">After-Play Drinks — Ronnie Scott's or the Baptist Bar</div>
+          <div style="background:#e4edf5;border:1px solid var(--london);border-radius:8px;padding:5px 12px;font-size:11px;font-weight:700;color:var(--london);white-space:nowrap;">~10:00 PM onwards</div>
+        </div>
+        <div style="font-size:13px;line-height:1.7;color:var(--mid);margin-top:10px;">
+          Operation Mincemeat runs a little over 2 hours with an interval, so expect to be out around 9:45–10:00pm. <strong>Option A: Ronnie Scott's</strong> (20-min walk or short taxi, Soho) — London's most legendary jazz club, open since 1959. Intimate, atmospheric, world-class musicians every night. Reviewers call it <em>"a must-do in London"</em> and <em>"something that has to be experienced at least once in a lifetime."</em> Book ahead — Monday sets typically start around 9:30–11pm. Check the schedule and book the act that appeals to you. <strong>Option B: Stay local</strong> — Head back toward the hotel and settle into the <strong>Baptist Bar</strong> for a nightcap in the chapel, no travel required after a long day.
+        </div>
+        <div style="font-size:11px;font-weight:600;color:var(--muted);margin-top:8px;">🎷 Ronnie Scott's: book tickets in advance · ⛪ Baptist Bar is right downstairs at the hotel</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AUG 18 MORNING -->
+  <div style="background:var(--london);color:white;border-radius:10px;padding:16px 24px;margin:40px 0 28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+    <div style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;">August 18 — Morning (fly home 5pm)</div>
+    <div style="font-size:11px;opacity:0.85;letter-spacing:1px;">Checkout 12:00pm · Leave hotel area by 1:30pm for Heathrow</div>
+  </div>
+
+  <div style="background:#fffbea;border:1px solid var(--gold);border-radius:10px;padding:18px 20px;margin-bottom:28px;font-size:13px;color:#6b5a2a;line-height:1.7;">
+    ✈ <strong>Airport logistics:</strong> Your 5pm flight means you should aim to be at Heathrow by 2pm for an international departure. <strong>Holborn station is a 1-minute walk from L'oscar</strong> and sits right on the Piccadilly line — direct to Heathrow, no changes, ~55–60 min (a few more stops than from central Soho, but still direct). Or take a taxi (~45–60 min in traffic, ~£55–75). Leave the hotel area by <strong>1:30pm at the latest</strong>.
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:0;">
+
+    <!-- Morning A -->
+    <div style="display:flex;gap:20px;padding:24px 0;border-bottom:1px solid rgba(0,0,0,0.07);">
+      <div style="flex-shrink:0;width:48px;height:48px;background:#8a7b6a;color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;">A</div>
+      <div style="flex:1;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;">Breakfast at L'oscar</div>
+          <div style="background:#f5f0e8;border:1px solid #8a7b6a;border-radius:8px;padding:5px 12px;font-size:11px;font-weight:700;color:#8a7b6a;white-space:nowrap;">7:30 – 9:00 AM</div>
+        </div>
+        <div style="font-size:13px;line-height:1.7;color:var(--mid);margin-top:10px;">
+          Breakfast is served 7–10:30am in L'oscar Restaurant, the Venetian-café-inspired room with the mirrored ceiling and onyx bar — a striking last-morning setting. This is the end of the trip — linger over it. With checkout at noon, keep this on the earlier side to leave room for one more wander.
+        </div>
+      </div>
+    </div>
+
+    <!-- Morning B -->
+    <div style="display:flex;gap:20px;padding:24px 0;border-bottom:1px solid rgba(0,0,0,0.07);">
+      <div style="flex-shrink:0;width:48px;height:48px;background:#8a7b6a;color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;">B</div>
+      <div style="flex:1;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;">Final Morning Wander</div>
+          <div style="background:#f5f0e8;border:1px solid #8a7b6a;border-radius:8px;padding:5px 12px;font-size:11px;font-weight:700;color:#8a7b6a;white-space:nowrap;">9:00 – 11:45 AM</div>
+        </div>
+        <div style="font-size:13px;line-height:1.7;color:var(--mid);margin-top:10px;">
+          A few options from Holborn. <strong>Option A: Covent Garden, once more</strong> — a 10-minute walk back to the market for a last coffee and browse before the crowds build. <strong>Option B: South Bank</strong> — about a 20-minute walk over Waterloo Bridge to the Thames path, Tate Modern, and Borough Market (open from 10am on a Tuesday) for British cheeses or a pastry for the flight. <strong>Option C: St James's Park</strong> — further out (best reached by Tube from Holborn, ~20 min door to door) but worth it for the pelicans and Buckingham Palace views if you'd rather trade the walk for the Tube ride.
+          <br><br>
+          Whichever you pick, head back to the hotel by 11:45am to collect bags and check out by noon.
+        </div>
+        <div style="font-size:11px;font-weight:600;color:var(--muted);margin-top:8px;">🏪 Borough Market: Tue–Sat, from 10am · 🦢 St James's Park: free, always open</div>
+      </div>
+    </div>
+
+    <!-- Departure -->
+    <div style="display:flex;gap:20px;padding:24px 0;">
+      <div style="flex-shrink:0;width:48px;height:48px;background:#c25b3f;color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;">✈</div>
+      <div style="flex:1;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;">Check Out → Heathrow → Home</div>
+          <div style="background:#fdf0ed;border:1px solid #c25b3f;border-radius:8px;padding:5px 12px;font-size:11px;font-weight:700;color:#c25b3f;white-space:nowrap;">Checkout 12:00pm · Leave by 1:30 PM</div>
+        </div>
+        <div style="font-size:13px;line-height:1.7;color:var(--mid);margin-top:10px;">
+          Check out at noon, then either head straight for the airport or ask the front desk to hold your bags for another hour or so if you want to squeeze in lunch nearby first. When you're ready, it's a 1-minute walk to <strong>Holborn Tube</strong> — take the <strong>Piccadilly line direct to Heathrow</strong>, no changes needed. Buy your Tube ticket or tap your Oyster/contactless card. The journey takes ~55–60 minutes to Heathrow Terminal 2/3, a few minutes more to T5. Arrive at Heathrow by 2pm for a 5pm departure — you'll have time for a final duty-free browse and a glass of champagne in the departure lounge. Happy 30th birthday! 🥂
+        </div>
+        <div style="font-size:11px;font-weight:600;color:#c25b3f;margin-top:8px;">🔔 Set alarm for 1:15pm as your "leave now" signal · 🚇 Holborn station, Piccadilly line, no changes</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- QUICK REFERENCE -->
+  <div style="background:var(--warm-white);border:1px solid rgba(0,0,0,0.08);border-radius:12px;padding:24px;margin-top:40px;">
+    <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">🇬🇧 London Quick Reference</div>
+    <div style="display:grid;gap:10px;font-size:13px;line-height:1.6;color:var(--mid);">
+      <div><strong>Southampton → London:</strong> Taxi to Southampton Central (~10 min) → South Western Railway direct to London Waterloo (~1h 15–49 min) → taxi or Tube (Waterloo & City to Bank, then Central line) to Holborn, ~20 min. Book train tickets on <strong>Trainline</strong> in advance.</div>
+      <div><strong>London → Heathrow:</strong> Piccadilly line from Holborn direct to all terminals (~55–60 min, ~£6 with Oyster). Or a taxi (~45–60 min in traffic).</div>
+      <div><strong>Getting around London:</strong> Download <strong>Citymapper</strong> for real-time Tube/bus navigation. Tap your contactless credit card directly on the barriers — no need to buy a separate Oyster card. Holborn puts you within a 10–15 minute walk of Covent Garden, the British Museum, and Soho.</div>
+      <div><strong>August weather:</strong> Warm and sunny is possible (18–24°C / 64–75°F) but pack a light jacket — English weather is unpredictable even in summer.</div>
+      <div><strong>Book in advance:</strong> Ronnie Scott's if you go that route after the show. Dinner and theatre for the 17th are already booked — see stops 3 and 4 above. Everything else is walk-up or same-day.</div>
+      <div><strong>UK ETA:</strong> Both of you have a UK Electronic Travel Authorisation on file (expiring 4 Mar 2027 and 9 Apr 2027 respectively) — nothing to do at the border, just keep the confirmation emails handy.</div>
+    </div>
+  </div>
+</section>
+
+<div class="trip-footer">
+  <strong>🏆 The Plan</strong><br><br>
+  <strong>Dublin:</strong> Book of Kells (11:00, booked) → quick bite → Guinness Storehouse (13:30, booked) → Temple Bar & Ha'penny Bridge → back by 4pm<br><br>
+  <strong>Lisbon:</strong> MYTHIC SANA Downtown Suites, Baixa — booked<br><br>
+  <strong>London:</strong> L'oscar London, Holborn — booked
+  <br><br>
+  <span style="opacity:0.5; font-size:10px;">Built with ♥ for a 30th birthday cruise adventure · August 2025</span>
+</div>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+  // ── Tab switching ──────────────────────────────────────────────
+  let dublinMap = null, lisbonDay1Map = null, londonPlanMap = null;
+
+  function showCity(city, btn) {
+    document.querySelectorAll('.city-section').forEach(s => s.classList.remove('visible'));
+    document.getElementById('section-' + city).classList.add('visible');
+    document.querySelectorAll('.city-tab').forEach(t => t.classList.remove('active-lisbon', 'active-london'));
+    btn.classList.add('active-' + city);
+    if (city === 'dublin') btn.style.borderBottomColor = '#2d7a3e', btn.style.color = '#2d7a3e';
+    if (city === 'lisbonplan') { btn.style.borderBottomColor = '#c9a84c'; btn.style.color = '#8a6a10'; }
+    if (city === 'londonplan') { btn.style.borderBottomColor = '#2d5a8e'; btn.style.color = '#2d5a8e'; }
+    if (city === 'cruise') { btn.style.borderBottomColor = '#a9813f'; btn.style.color = '#a9813f'; }
+
+    // Init map lazily once the container is visible
+    if (city === 'dublin' && !dublinMap) initDublinMap();
+    if (city === 'lisbonplan' && !lisbonDay1Map) initLisbonDay1Map();
+    if (city === 'londonplan' && !londonPlanMap) initLondonPlanMap();
+
+    // Force tile redraw in case container was hidden on first load
+    setTimeout(() => {
+      if (city === 'dublin' && dublinMap) dublinMap.invalidateSize();
+      if (city === 'lisbonplan' && lisbonDay1Map) lisbonDay1Map.invalidateSize();
+      if (city === 'londonplan' && londonPlanMap) londonPlanMap.invalidateSize();
+    }, 50);
+  }
+
+  // ── Shared tile layer factory ──────────────────────────────────
+  function tiles() {
+    return L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      maxZoom: 19
+    });
+  }
+
+  // ── Marker icon helpers ────────────────────────────────────────
+  function makeIcon(color, label) {
+    return L.divIcon({
+      className: '',
+      html: `<div style="
+        background:${color};
+        color:white;
+        border-radius:50% 50% 50% 0;
+        transform:rotate(-45deg);
+        width:32px;height:32px;
+        display:flex;align-items:center;justify-content:center;
+        font-size:9px;font-weight:700;font-family:sans-serif;
+        box-shadow:0 2px 6px rgba(0,0,0,0.35);
+        border:2px solid white;
+      "><span style="transform:rotate(45deg)">${label}</span></div>`,
+      iconSize: [32, 32],
+      iconAnchor: [16, 32],
+      popupAnchor: [0, -34]
+    });
+  }
+
+  // ── Dublin map ─────────────────────────────────────────────────
+  function initDublinMap() {
+    dublinMap = L.map('map-dublin').setView([53.343, -6.267], 15);
+    tiles().addTo(dublinMap);
+    const stops = [
+      { name: '① Trinity College / Book of Kells', lat: 53.3439, lng: -6.2568, color: '#2d7a3e', label: '①',
+        note: '11:00am · Booked · Allow 90 min' },
+      { name: '② Grafton Street — quick bite', lat: 53.3416, lng: -6.2602, color: '#2d7a3e', label: '②',
+        note: '12:30pm · Bewley\'s grab-and-go · Keep it to 30 min' },
+      { name: '③ Guinness Storehouse', lat: 53.3418, lng: -6.2867, color: '#2d7a3e', label: '③',
+        note: '1:30pm · Booked · Gravity Bar views · Closes 5pm' },
+      { name: '④ Temple Bar', lat: 53.3449, lng: -6.2675, color: '#2d7a3e', label: '④',
+        note: '3:00pm · Live music · Cobblestone streets' },
+      { name: "④ Ha'penny Bridge", lat: 53.3463, lng: -6.2631, color: '#2d7a3e', label: '④',
+        note: 'Must-do Dublin photo stop · Free to cross' },
+    ];
+    stops.forEach(s => {
+      L.marker([s.lat, s.lng], { icon: makeIcon(s.color, s.label) })
+        .addTo(dublinMap)
+        .bindPopup(`<strong style="font-size:13px;">${s.name}</strong><br><span style="font-size:11px;color:#666;">${s.note}</span>`);
+    });
+  }
+
+  // Init Lisbon map on page load (it's the default tab)
+  function initLisbonDay1Map() {
+    lisbonDay1Map = L.map('map-lisbonday1').setView([38.710, -9.140], 14);
+    tiles().addTo(lisbonDay1Map);
+    const stops = [
+      { name: '① MYTHIC SANA Downtown Suites', lat: 38.7099, lng: -9.1394, color: '#c25b3f', label: '①',
+        note: 'Breakfast at BLACK MOON Gastrobar · 9am · $100 F&B credit here!' },
+      { name: '② Santa Justa Elevator', lat: 38.7126, lng: -9.1394, color: '#c25b3f', label: '②',
+        note: '9:45am · 5 min walk from hotel · Rooftop viewing platform' },
+      { name: '③ Miradouro de Santa Luzia', lat: 38.7117, lng: -9.1302, color: '#c25b3f', label: '③',
+        note: 'Tram 28 stop · Free viewpoint · Azulejo tiles' },
+      { name: '③ Miradouro das Portas do Sol', lat: 38.7127, lng: -9.1296, color: '#c25b3f', label: '③',
+        note: 'Free viewpoint · Views toward the castle' },
+      { name: '③ Castelo de São Jorge (exterior)', lat: 38.7139, lng: -9.1335, color: '#c25b3f', label: '③',
+        note: 'No ticket needed · Walls & gardens only · Peacocks near the gate' },
+      { name: '④ Praça do Comércio', lat: 38.7073, lng: -9.1364, color: '#c25b3f', label: '④',
+        note: '12:30pm · Grand riverside square · Arco da Rua Augusta' },
+      { name: '④ Time Out Market', lat: 38.7071, lng: -9.1457, color: '#8a7b6a', label: '④',
+        note: 'Lunch option · Best Lisbon food under one roof · Go early' },
+      { name: '⑤ Jerónimos Monastery (exterior)', lat: 38.6979, lng: -9.2067, color: '#c25b3f', label: '⑤',
+        note: '2pm · No ticket needed · Facade & gardens only' },
+      { name: '⑤ Pastéis de Belém', lat: 38.6975, lng: -9.2032, color: '#c25b3f', label: '⑤',
+        note: 'Original 1837 recipe · Eat warm with cinnamon · 5 min from Jerónimos' },
+      { name: '⑥ Memmo Alfama Wine Bar & Terrace', lat: 38.7113, lng: -9.1291, color: '#c25b3f', label: '⑥',
+        note: '7:30pm · Booked · Sunset terrace over Alfama' },
+      { name: '⑦ Clube de Fado', lat: 38.7096, lng: -9.1312, color: '#c25b3f', label: '⑦',
+        note: '9:00pm · Booked · Prestigious fado house near Sé Cathedral' },
+    ];
+    stops.forEach(s => {
+      L.marker([s.lat, s.lng], { icon: makeIcon(s.color, s.label) })
+        .addTo(lisbonDay1Map)
+        .bindPopup(`<strong style="font-size:13px;">${s.name}</strong><br><span style="font-size:11px;color:#666;">${s.note}</span>`);
+    });
+  }
+
+  function initLondonPlanMap() {
+    londonPlanMap = L.map('map-londonplan').setView([51.514, -0.126], 14);
+    tiles().addTo(londonPlanMap);
+    const stops = [
+      { name: "🏨 L'oscar London (base)", lat: 51.5172, lng: -0.1202, color: '#2d5a8e', label: '🏨',
+        note: 'Your hotel · $100 Amex F&B credit · Baptist Bar & Grill in the chapel' },
+      { name: 'British Museum', lat: 51.5194, lng: -0.1270, color: '#2d5a8e', label: '②',
+        note: 'Afternoon · 8 min walk from hotel · Free general admission' },
+      { name: 'Covent Garden Piazza', lat: 51.5120, lng: -0.1228, color: '#2d5a8e', label: '②',
+        note: 'Afternoon · Street performers · Victorian market · Also tonight\'s dinner area' },
+      { name: 'Trafalgar Square', lat: 51.5080, lng: -0.1281, color: '#2d5a8e', label: '②',
+        note: 'Afternoon · Nelson\'s Column · National Gallery · Iconic London' },
+      { name: '🍽 Paro Indian (dinner, booked)', lat: 51.5108, lng: -0.1211, color: '#2d5a8e', label: '③',
+        note: '6:00 PM · Confirmation #86378 · 21 Wellington St' },
+      { name: '🎭 Fortune Theatre (booked)', lat: 51.5124, lng: -0.1233, color: '#2d5a8e', label: '④',
+        note: '7:30 PM · Operation Mincemeat · Stalls D10 & D11' },
+      { name: '🎷 Ronnie Scott\'s Jazz Club', lat: 51.5135, lng: -0.1315, color: '#8a7b6a', label: '⑤',
+        note: 'After-play drinks option · Legendary since 1959 · ~20 min from hotel' },
+      { name: 'South Bank / Borough Market (Aug 18)', lat: 51.5055, lng: -0.0910, color: '#8a7b6a', label: 'A',
+        note: 'Aug 18 morning option · Thames walk · Borough Market open from 10am Tue' },
+      { name: 'St James\'s Park (Aug 18)', lat: 51.5023, lng: -0.1337, color: '#8a7b6a', label: 'A',
+        note: 'Alt Aug 18 morning · Pelicans · Buckingham Palace views · Free' },
+    ];
+    stops.forEach(s => {
+      L.marker([s.lat, s.lng], { icon: makeIcon(s.color, s.label) })
+        .addTo(londonPlanMap)
+        .bindPopup(`<strong style="font-size:13px;">${s.name}</strong><br><span style="font-size:11px;color:#666;">${s.note}</span>`);
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => initDublinMap());
+</script>
+
+</body>
+</html>
