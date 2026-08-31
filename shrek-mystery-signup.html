@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shrek Murder Mystery — Pick Your Role</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;1,500&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --swamp-dark:#232f1d;
+    --swamp-panel:#3a4a2f;
+    --moss:#8aa477;
+    --parchment:#f1e9d2;
+    --parchment-dim:#e6dbbe;
+    --ink:#2b2117;
+    --ink-soft:#5c4f3d;
+    --mud:#6b4423;
+    --gold:#c9a227;
+    --seal:#7a2e2e;
+    --font-display:'Fraunces', Georgia, serif;
+    --font-body:'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  *{box-sizing:border-box;}
+
+  body{
+    margin:0;
+    min-height:100vh;
+    background:
+      radial-gradient(circle at 20% 0%, rgba(138,164,119,0.18), transparent 55%),
+      radial-gradient(circle at 85% 30%, rgba(201,162,39,0.10), transparent 45%),
+      var(--swamp-dark);
+    font-family:var(--font-body);
+    color:var(--parchment);
+    padding:24px 16px 60px;
+  }
+
+  .page{
+    max-width:900px;
+    margin:0 auto;
+  }
+
+  /* ---- Invitation header ---- */
+  .invite{
+    background:var(--parchment);
+    color:var(--ink);
+    border:2px solid var(--mud);
+    border-radius:6px;
+    padding:32px 24px 28px;
+    text-align:center;
+    box-shadow:0 18px 40px rgba(0,0,0,0.35);
+    animation:settle 0.6s ease-out;
+  }
+  @keyframes settle{
+    from{opacity:0; transform:translateY(-10px);}
+    to{opacity:1; transform:translateY(0);}
+  }
+
+  .invite__emoji{font-size:2.6rem; line-height:1;}
+  .invite__title{
+    font-family:var(--font-display);
+    font-weight:600;
+    font-size:clamp(1.8rem, 5vw, 2.6rem);
+    margin:8px 0 4px;
+  }
+  .invite__subtitle{
+    margin:0 0 4px;
+    font-size:1.05rem;
+    color:var(--ink-soft);
+  }
+  .invite__instructions{
+    margin:14px auto 16px;
+    max-width:38ch;
+    font-size:0.92rem;
+    color:var(--ink-soft);
+    line-height:1.5;
+  }
+  .invite__input{
+    width:100%;
+    max-width:320px;
+    padding:12px 14px;
+    font-family:var(--font-body);
+    font-size:1rem;
+    border:1.5px solid var(--mud);
+    border-radius:4px;
+    background:#fffdf8;
+    color:var(--ink);
+  }
+  .invite__input:focus-visible{
+    outline:2px solid var(--gold);
+    outline-offset:2px;
+  }
+
+  /* ---- Progress ---- */
+  .progress{
+    max-width:420px;
+    margin:22px auto 26px;
+    text-align:center;
+  }
+  .progress__bar{
+    height:8px;
+    border-radius:4px;
+    background:var(--swamp-panel);
+    overflow:hidden;
+    border:1px solid rgba(241,233,210,0.2);
+  }
+  .progress__fill{
+    height:100%;
+    width:0%;
+    background:var(--moss);
+    transition:width 0.4s ease;
+  }
+  .progress__text{
+    margin:8px 0 0;
+    font-size:0.88rem;
+    color:var(--parchment-dim);
+  }
+
+  /* ---- Card grid ---- */
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(230px, 1fr));
+    gap:14px;
+  }
+
+  .grid__empty{
+    grid-column:1/-1;
+    text-align:center;
+    color:var(--parchment-dim);
+    padding:30px 0;
+    font-size:0.95rem;
+  }
+
+  .card{
+    position:relative;
+    background:var(--parchment);
+    color:var(--ink);
+    border:1.5px solid var(--mud);
+    border-radius:4px;
+    padding:16px 16px 14px;
+    overflow:hidden;
+    transition:border-color 0.15s ease;
+  }
+  .card--mine{
+    border-color:var(--moss);
+    box-shadow:0 0 0 2px rgba(138,164,119,0.5);
+  }
+
+  .card__emoji{font-size:1.6rem;}
+  .card__name{
+    font-family:var(--font-display);
+    font-weight:600;
+    font-size:1.15rem;
+    margin:6px 0 4px;
+  }
+  .card__tag{
+    font-size:0.85rem;
+    color:var(--ink-soft);
+    line-height:1.4;
+    min-height:2.6em;
+  }
+
+  .card__action{margin-top:12px;}
+
+  .claim-btn{
+    width:100%;
+    padding:9px 10px;
+    background:var(--gold);
+    color:var(--ink);
+    border:1.5px solid var(--mud);
+    border-radius:4px;
+    font-family:var(--font-body);
+    font-weight:600;
+    font-size:0.9rem;
+    cursor:pointer;
+  }
+  .claim-btn:hover{background:#d9b23a;}
+  .claim-btn:focus-visible{outline:2px solid var(--swamp-dark); outline-offset:2px;}
+  .claim-btn:active{transform:scale(0.98);}
+
+  .card__claimed-by{
+    margin-top:12px;
+    font-size:0.85rem;
+    color:var(--ink-soft);
+  }
+  .card__claimed-by strong{color:var(--ink);}
+
+  .stamp{
+    position:absolute;
+    top:14px;
+    right:-8px;
+    transform:rotate(9deg);
+    border:2px solid var(--seal);
+    color:var(--seal);
+    font-family:var(--font-body);
+    font-weight:700;
+    font-size:0.65rem;
+    letter-spacing:0.04em;
+    padding:2px 8px;
+    border-radius:3px;
+    opacity:0.88;
+    animation:stamp-down 0.35s ease-out;
+  }
+  @keyframes stamp-down{
+    from{opacity:0; transform:rotate(9deg) scale(1.6);}
+    to{opacity:0.88; transform:rotate(9deg) scale(1);}
+  }
+
+  /* ---- Add-your-own card ---- */
+  .other-card{
+    background:var(--parchment);
+    color:var(--ink);
+    border:1.5px dashed var(--mud);
+    border-radius:4px;
+    padding:18px 16px;
+    margin-top:20px;
+    text-align:left;
+  }
+  .other-card__title{
+    font-family:var(--font-display);
+    font-weight:600;
+    font-size:1.1rem;
+    margin:0 0 4px;
+  }
+  .other-card__hint{
+    margin:0 0 12px;
+    font-size:0.85rem;
+    color:var(--ink-soft);
+  }
+  .other-card__row{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+  .other-card__input{
+    flex:1 1 180px;
+    padding:10px 12px;
+    font-family:var(--font-body);
+    font-size:0.95rem;
+    border:1.5px solid var(--mud);
+    border-radius:4px;
+    background:#fffdf8;
+    color:var(--ink);
+  }
+  .other-card__input:focus-visible{ outline:2px solid var(--gold); outline-offset:2px; }
+  .other-card .claim-btn{ width:auto; flex:0 0 auto; padding:10px 16px; }
+
+  /* ---- Footer ---- */
+  .footer{
+    text-align:center;
+    margin-top:36px;
+  }
+  .footer__reset{
+    background:none;
+    border:none;
+    color:rgba(241,233,210,0.45);
+    font-family:var(--font-body);
+    font-size:0.78rem;
+    text-decoration:underline;
+    cursor:pointer;
+    padding:6px;
+  }
+  .footer__reset:focus-visible{outline:2px solid var(--gold); outline-offset:2px;}
+
+  /* ---- Toast ---- */
+  .toast{
+    position:fixed;
+    left:50%;
+    bottom:24px;
+    transform:translateX(-50%) translateY(20px);
+    background:var(--ink);
+    color:var(--parchment);
+    padding:12px 18px;
+    border-radius:6px;
+    font-size:0.9rem;
+    max-width:88vw;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,0.4);
+    opacity:0;
+    pointer-events:none;
+    transition:opacity 0.25s ease, transform 0.25s ease;
+    z-index:10;
+  }
+  .toast--visible{
+    opacity:1;
+    transform:translateX(-50%) translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important;}
+  }
+</style>
+</head>
+<body>
+  <div class="page">
+    <header class="invite">
+      <div class="invite__emoji">🧌</div>
+      <h1 class="invite__title">You're Invited</h1>
+      <p class="invite__subtitle">A Shrek Murder Mystery Dinner — November</p>
+      <p class="invite__instructions">Type your name, then tap a role to claim it. First come, first served — the roster updates live for everyone.</p>
+      <input id="guestName" class="invite__input" type="text" placeholder="Your name" autocomplete="off" maxlength="40" />
+    </header>
+
+    <div class="progress">
+      <div class="progress__bar"><div class="progress__fill" id="progressFill"></div></div>
+      <p class="progress__text" id="progressText">Loading roster…</p>
+    </div>
+
+    <main class="grid" id="grid">
+      <p class="grid__empty">Loading roles…</p>
+    </main>
+
+    <section class="other-card">
+      <h2 class="other-card__title">Playing someone else?</h2>
+      <p class="other-card__hint">Add any character not on the list above.</p>
+      <div class="other-card__row">
+        <input id="otherChar" class="other-card__input" type="text" placeholder="Character name" autocomplete="off" maxlength="40" />
+        <button id="otherClaimBtn" class="claim-btn" type="button">Claim this role</button>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <button class="footer__reset" id="resetBtn" type="button">Host: reset roster</button>
+    </footer>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <!-- Firebase (client-side only — no server needed, works on static hosting like GitHub Pages) -->
+  <script src="https://www.gstatic.com/firebasejs/12.18.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/12.18.0/firebase-database-compat.js"></script>
+
+<script>
+  // ---- 1. Paste your Firebase project's config here (Project settings > General > Your apps) ----
+  const firebaseConfig = {
+    apiKey: "AIzaSyBSv_iBzNtegREXsDNZDzPGQJhg9d0_b7g",
+    authDomain: "shrek-murder-party.firebaseapp.com",
+    databaseURL: "https://shrek-murder-party-default-rtdb.firebaseio.com",
+    projectId: "shrek-murder-party",
+    storageBucket: "shrek-murder-party.firebasestorage.app",
+    messagingSenderId: "73022320852",
+    appId: "1:73022320852:web:57117a2f876538e05acb41"
+  };
+
+  const CHARACTERS = [
+    { id:'shrek', name:'Shrek', emoji:'🧌', tag:"An ogre who'd rather be left alone in his swamp." },
+    { id:'fiona', name:'Princess Fiona', emoji:'👸', tag:'A princess with a curse and zero patience for waiting to be rescued.' },
+    { id:'donkey', name:'Donkey', emoji:'🫏', tag:'Talks nonstop and somehow still has time to solve a crime.' },
+    { id:'puss', name:'Puss in Boots', emoji:'🐈', tag:'A blade-wielding cat with excellent boots and worse impulse control.' },
+    { id:'farquaad', name:'Lord Farquaad', emoji:'🏰', tag:'Short on height, long on grudges.' },
+    { id:'dragon', name:'Dragon', emoji:'🔥', tag:'Guards a castle, falls hard, breathes fire when annoyed.' },
+    { id:'gingy', name:'Gingerbread Man', emoji:'🍪', tag:'Survived an interrogation. Never forgot it.' },
+    { id:'pinocchio', name:'Pinocchio', emoji:'🪵', tag:'His nose gives him away every single time.' },
+    { id:'wolf', name:'Big Bad Wolf', emoji:'🐺', tag:"Prefers a nightgown to a den these days." },
+    { id:'godmother', name:'Fairy Godmother', emoji:'🪄', tag:'Runs a potion empire and does not take rejection well.' },
+    { id:'charming', name:'Prince Charming', emoji:'🤴', tag:'Was promised a happy ending. Still waiting on it.' },
+    { id:'harold', name:'King Harold', emoji:'👑', tag:'A father with a crown, a temper, and a secret.' },
+    { id:'lillian', name:'Queen Lillian', emoji:'💍', tag:'Keeps the family together. Keeps secrets better.' },
+    { id:'doris', name:'Doris', emoji:'💅', tag:'One of the stepsisters. Louder than the other two combined.' },
+    { id:'hook', name:'Captain Hook', emoji:'🪝', tag:'Runs the bar, plays the piano, holds a grudge.' },
+    { id:'rumpel', name:'Rumpelstiltskin', emoji:'🖋️', tag:'Deals in cursed contracts and deals gone wrong.' }
+  ];
+  const BUILTIN_IDS = new Set(CHARACTERS.map(c => c.id));
+
+  let signups = {};
+  let db, signupsRef;
+
+  const grid = document.getElementById('grid');
+  const progressFill = document.getElementById('progressFill');
+  const progressText = document.getElementById('progressText');
+  const nameInput = document.getElementById('guestName');
+  const toastEl = document.getElementById('toast');
+  const resetBtn = document.getElementById('resetBtn');
+  const otherInput = document.getElementById('otherChar');
+  const otherBtn = document.getElementById('otherClaimBtn');
+
+  function escapeHtml(str){
+    return String(str)
+      .replace(/&/g,'&amp;')
+      .replace(/</g,'&lt;')
+      .replace(/>/g,'&gt;')
+      .replace(/"/g,'&quot;')
+      .replace(/'/g,'&#39;');
+  }
+
+  function showToast(msg){
+    toastEl.textContent = msg;
+    toastEl.classList.add('toast--visible');
+    clearTimeout(showToast._t);
+    showToast._t = setTimeout(()=>{
+      toastEl.classList.remove('toast--visible');
+    }, 3200);
+  }
+
+  function render(){
+    const myName = nameInput.value.trim().toLowerCase();
+    const builtinClaimed = CHARACTERS.filter(ch => signups[ch.id]).length;
+    const customEntries = Object.entries(signups).filter(([id]) => !BUILTIN_IDS.has(id));
+
+    progressFill.style.width = (builtinClaimed / CHARACTERS.length * 100) + '%';
+    let progressMsg = builtinClaimed + ' of ' + CHARACTERS.length + ' roles claimed';
+    if (customEntries.length > 0){
+      progressMsg += ' · ' + customEntries.length + ' custom role' + (customEntries.length > 1 ? 's' : '') + ' added';
+    }
+    progressText.textContent = progressMsg;
+
+    const builtinHtml = CHARACTERS.map(ch => {
+      const entry = signups[ch.id];
+      const isMine = entry && entry.guest.toLowerCase() === myName && myName.length > 0;
+      let actionHtml;
+      if (entry){
+        actionHtml =
+          '<div class="stamp">claimed</div>' +
+          '<p class="card__claimed-by">Playing: <strong>' + escapeHtml(entry.guest) + '</strong></p>';
+      } else {
+        actionHtml =
+          '<div class="card__action">' +
+            '<button class="claim-btn" data-id="' + ch.id + '" type="button">Claim this role</button>' +
+          '</div>';
+      }
+      return (
+        '<div class="card' + (isMine ? ' card--mine' : '') + '">' +
+          '<div class="card__emoji">' + ch.emoji + '</div>' +
+          '<h2 class="card__name">' + escapeHtml(ch.name) + '</h2>' +
+          '<p class="card__tag">' + escapeHtml(ch.tag) + '</p>' +
+          actionHtml +
+        '</div>'
+      );
+    }).join('');
+
+    const customHtml = customEntries.map(([id, entry]) => {
+      const isMine = entry.guest.toLowerCase() === myName && myName.length > 0;
+      return (
+        '<div class="card' + (isMine ? ' card--mine' : '') + '">' +
+          '<div class="card__emoji">🎭</div>' +
+          '<h2 class="card__name">' + escapeHtml(entry.name) + '</h2>' +
+          '<p class="card__tag">A role added by a guest.</p>' +
+          '<div class="stamp">claimed</div>' +
+          '<p class="card__claimed-by">Playing: <strong>' + escapeHtml(entry.guest) + '</strong></p>' +
+        '</div>'
+      );
+    }).join('');
+
+    grid.innerHTML = builtinHtml + customHtml;
+  }
+
+  // Atomically claim a slot, then release any other slot this guest previously held.
+  async function assignRole(id, displayName){
+    const name = nameInput.value.trim();
+    if (!name){
+      showToast('Enter your name first.');
+      nameInput.focus();
+      return false;
+    }
+
+    try {
+      const result = await signupsRef.child(id).transaction(current => {
+        if (current === null){
+          return { guest: name, name: displayName, ts: firebase.database.ServerValue.TIMESTAMP };
+        }
+        if (current.guest && current.guest.toLowerCase() === name.toLowerCase()){
+          return { guest: name, name: displayName, ts: firebase.database.ServerValue.TIMESTAMP };
+        }
+        return; // abort — someone else already holds this one
+      });
+
+      if (!result.committed){
+        showToast('Someone just claimed that one — pick another.');
+        return false;
+      }
+
+      const snap = await signupsRef.once('value');
+      const all = snap.val() || {};
+      const updates = {};
+      for (const key of Object.keys(all)){
+        if (key !== id && all[key].guest && all[key].guest.toLowerCase() === name.toLowerCase()){
+          updates[key] = null;
+        }
+      }
+      if (Object.keys(updates).length){
+        await signupsRef.update(updates);
+      }
+
+      showToast("You're playing " + displayName + "!");
+      return true;
+    } catch (err){
+      console.error('Firebase error', err);
+      showToast("Couldn't save — check your connection and try again.");
+      return false;
+    }
+  }
+
+  function claim(charId){
+    const ch = CHARACTERS.find(c => c.id === charId);
+    assignRole(charId, ch.name);
+  }
+
+  async function claimOther(){
+    const rawName = otherInput.value.trim();
+    if (!rawName){
+      showToast('Type a character name first.');
+      otherInput.focus();
+      return;
+    }
+
+    const builtinMatch = CHARACTERS.find(c => c.name.toLowerCase() === rawName.toLowerCase());
+    if (builtinMatch){
+      showToast("That role's already on the list above — tap it to claim it.");
+      return;
+    }
+
+    let slug = rawName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+    if (!slug) slug = 'role-' + Date.now();
+    const id = 'custom-' + slug;
+
+    const success = await assignRole(id, rawName);
+    if (success){
+      otherInput.value = '';
+    }
+  }
+
+  grid.addEventListener('click', (e) => {
+    const btn = e.target.closest('.claim-btn');
+    if (!btn) return;
+    claim(btn.dataset.id);
+  });
+
+  nameInput.addEventListener('input', render);
+
+  otherBtn.addEventListener('click', claimOther);
+  otherInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter'){
+      e.preventDefault();
+      claimOther();
+    }
+  });
+
+  resetBtn.addEventListener('click', async () => {
+    if (!confirm('Reset ALL signups? This clears every claimed role for everyone.')) return;
+    const code = prompt('Type RESET to confirm (host only):');
+    if (code !== 'RESET') return;
+    try {
+      await signupsRef.remove();
+      showToast('Roster reset.');
+    } catch (err){
+      showToast("Couldn't reset — check your connection and try again.");
+    }
+  });
+
+  (function init(){
+    if (firebaseConfig.apiKey === 'YOUR_API_KEY'){
+      grid.innerHTML = '<p class="grid__empty">Add your Firebase config near the top of the script before this will work.</p>';
+      return;
+    }
+    firebase.initializeApp(firebaseConfig);
+    db = firebase.database();
+    signupsRef = db.ref('signups');
+    signupsRef.on('value', (snapshot) => {
+      signups = snapshot.val() || {};
+      render();
+    });
+  })();
+</script>
+</body>
+</html>
